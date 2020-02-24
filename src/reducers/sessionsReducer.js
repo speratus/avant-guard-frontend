@@ -1,7 +1,9 @@
-import builder from 'redux-reducer-builder'
+import generator from 'redux-reducer-builder'
 
 import login from '../actions/login'
 import logout from '../actions/logout'
+
+const builder = generator()
 
 builder.setInitialState(false)
 

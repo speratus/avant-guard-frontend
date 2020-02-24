@@ -1,8 +1,10 @@
-import builder from 'redux-reducer-builder'
+import generator from 'redux-reducer-builder'
 
 import gotoNextQuestion from '../actions/gotoNextQuestion'
 import addGameData from '../actions/addGameData'
 import resetGameState from '../actions/resetGameState'
+
+const builder = generator()
 
 let initialState = {
     currentQuestion: 0,
