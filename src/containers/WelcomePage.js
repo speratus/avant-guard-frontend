@@ -5,13 +5,10 @@ import {withRouter} from 'react-router-dom'
 const WelcomePage = props => {
     if (!localStorage.getItem('token')) {
         props.history.push({
-            pathname: "/login",
-            state: {
-                loggedIn: false
-            }
+            pathname: "/login"
         })
     }
-    return null
+    return <h1>Hello World</h1>
 }
 
 export default withRouter(WelcomePage)

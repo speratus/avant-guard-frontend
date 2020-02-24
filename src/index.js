@@ -7,7 +7,7 @@ import {Provider} from 'react-redux'
 import {createStore, combineReducers} from 'redux'
 import gameReducer from './reducers/GameReducer'
 
-console.log('Game reducer with no args returns', gameReducer())
+export const BASE_URL = "http://localhost:3000"
 
 const reducers = combineReducers({
     game: gameReducer

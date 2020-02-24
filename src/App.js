@@ -10,7 +10,7 @@ import SignupForm from './components/SignupForm'
 function App() {
   return (
     <Router>
-      <Navbar />
+      <Navbar loggedIn={!!localStorage.getItem('token')}/>
 
       <Route exact path="/">
         <WelcomePage />

@@ -1,5 +1,8 @@
 import React from 'react'
 import { Grid, Form, Segment, Header, Button } from 'semantic-ui-react'
+import {withRouter} from 'react-router-dom'
+
+import {BASE_URL} from '../index'
 
 class LoginForm extends React.Component {
     state = {
@@ -16,7 +19,33 @@ class LoginForm extends React.Component {
     onSubmit = e => {
         e.preventDefault()
         console.log("Submitting login info")
-        //Finish this code later!
+
+        const {username, password} = this.state
+        this.setState({username: '', password: ''})
+
+        fetch(BASE_URL+'/sessions', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json'
+            },
+            body: JSON.stringify({
+                user: {
+                    username, password
+                }
+            })
+        }).then(res => res.json()).then(message => {
+            console.log(message)
+            if (message.token) {
+                localStorage.setItem("token", message.token)
+                this.props.history.push({
+                    pathname: '/',
+                    state: {
+                        loggedIn: true
+                    }
+                })
+            }
+        })
     }
 
     render() {
@@ -54,4 +83,4 @@ class LoginForm extends React.Component {
     }
 }
 
-export default LoginForm
+export default withRouter(LoginForm)
