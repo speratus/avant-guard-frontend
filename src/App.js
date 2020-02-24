@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 import Navbar from './components/Navbar'
 import WelcomePage from './containers/WelcomePage'
+import LoginForm from './components/LoginForm'
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       </Route>
 
       <Route path="/login">
-        
+        <LoginForm />
       </Route>
     </Router>
   );
