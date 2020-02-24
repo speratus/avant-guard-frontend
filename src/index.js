@@ -7,6 +7,8 @@ import {Provider} from 'react-redux'
 import {createStore, combineReducers} from 'redux'
 import gameReducer from './reducers/GameReducer'
 
+console.log('Game reducer with no args returns', gameReducer())
+
 const reducers = combineReducers({
     game: gameReducer
 })

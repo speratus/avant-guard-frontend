@@ -1,7 +1,7 @@
-import {GOTO_NEXT_QUESTION} from './ActionTypes'
+import ActionTypes from './ActionTypes'
 
 export default function() {
     return {
-        type: GOTO_NEXT_QUESTION
+        type: ActionTypes.GOTO_NEXT_QUESTION
     }
 }

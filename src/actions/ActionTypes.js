@@ -1,4 +1,4 @@
-export default actionTypes = {
+export default {
     ADD_GAME_DATA: 'ADD_GAME_DATA',
     GOTO_NEXT_QUESTION: 'GOTO_NEXT_QUESTION',
     RESET_GAME_STATE: 'RESET_GAME_STATE',

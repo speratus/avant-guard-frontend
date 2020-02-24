@@ -9710,8 +9710,8 @@ redent@^3.0.0:
     strip-indent "^3.0.0"
 
 "redux-reducer-builder@https://github.com/speratus/redux-reducer-builder":
-  version "0.1.1"
-  resolved "https://github.com/speratus/redux-reducer-builder#1e53ea51ea005e03113373a5f436be040583fd1a"
+  version "0.1.2"
+  resolved "https://github.com/speratus/redux-reducer-builder#8cca5eeab580c0a72a3750724d3d54fdba02cf1b"
   dependencies:
     expect.js "^0.3.1"
     mocha "^7.0.1"

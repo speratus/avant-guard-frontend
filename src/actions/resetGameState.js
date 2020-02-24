@@ -1,7 +1,7 @@
-import {RESET_GAME_STATE} from './ActionTypes'
+import ActionTypes from './ActionTypes'
 
 export default function() {
     return {
-        type: RESET_GAME_STATE
+        type: ActionTypes.RESET_GAME_STATE
     }
 }
