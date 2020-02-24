@@ -1,12 +1,13 @@
 import builder from 'redux-reducer-builder'
 
 import gotoNextQuestion from '../actions/gotoNextQuestion'
-import addQuestions from '../actions/addQuestions'
+import addGameData from '../actions/addGameData'
 import resetGameState from '../actions/resetGameState'
 
 let initialState = {
     currentQuestion: 0,
-    questions: []
+    questions: [],
+    lyrics: ""
 }
 
 builder.setInitialState(initialState)
@@ -18,10 +19,11 @@ builder.addAction(gotoNextQuestion, (state, action) => {
     }
 })
 
-builder.addAction(addQuestions, (state, action) => {
+builder.addAction(addGameData, (state, action) => {
     return {
         ...state,
-        questions: action.questions
+        questions: action.questions,
+        lyrics: action.lyrics
     }
 })
 
