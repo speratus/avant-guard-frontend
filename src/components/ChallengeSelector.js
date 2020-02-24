@@ -73,7 +73,7 @@ class ChallengeSelector extends React.Component {
 
     render() {
         return <Container>
-            <Header>Select Genre or Artist</Header>
+            <Header.Subheader as='h1'>Select Genre or Artist</Header.Subheader>
             <Button.Group>
                 <Button 
                     name='genres'
@@ -92,10 +92,6 @@ class ChallengeSelector extends React.Component {
                 results={this.state.results}
                 value={this.state.searchTerm}
             />
-            <Button 
-            primary
-            style={{fontSize: '3em'}}
-            >Start Game!</Button>
         </Container>
     }
 }

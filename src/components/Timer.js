@@ -1,8 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
-
-import decreaseTimer from '../actions/decreaseTimer'
 import { Segment, Header } from 'semantic-ui-react'
+
+import gotoNextQuestion from '../actions/gotoNextQuestion'
+import decreaseTimer from '../actions/decreaseTimer'
 
 class Timer extends React.Component {
 
@@ -19,6 +20,9 @@ class Timer extends React.Component {
     }
 
     render() {
+        if (this.props.timeRemaining === 0) {
+            this.props.gotoNextQuestion()
+        }
         return <Segment>
             <Header as='h1'>{this.props.timeRemaining}</Header>
             <Header.Subheader>Seconds remaining</Header.Subheader>
@@ -33,4 +37,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {decreaseTimer})(Timer)
+export default connect(mapStateToProps, {decreaseTimer, gotoNextQuestion})(Timer)
