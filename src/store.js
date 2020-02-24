@@ -1,10 +1,12 @@
 import {createStore, combineReducers} from 'redux'
 import gameReducer from './reducers/GameReducer'
 import sessionsReducer from './reducers/sessionsReducer'
+import gameOptionsReducer from './reducers/gameOptionsReducer'
 
 const reducers = combineReducers({
     game: gameReducer,
-    loggedIn: sessionsReducer
+    loggedIn: sessionsReducer,
+    gameOptions: gameOptionsReducer
 })
 
 export default createStore(
