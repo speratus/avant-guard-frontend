@@ -4,16 +4,9 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from 'react-redux'
 
-import {createStore, combineReducers} from 'redux'
-import gameReducer from './reducers/GameReducer'
+import store from './store'
 
 export const BASE_URL = "http://localhost:3000"
-
-const reducers = combineReducers({
-    game: gameReducer
-})
-
-let store = createStore(reducers)
 
 ReactDOM.render(
     <Provider store={store}>

@@ -1,6 +1,8 @@
 import React from 'react'
 import { Grid, Form, Segment, Header, Button } from 'semantic-ui-react'
 import {withRouter} from 'react-router-dom'
+import login from '../actions/login'
+import {connect} from 'react-redux'
 
 import {BASE_URL} from '../index'
 
@@ -38,6 +40,7 @@ class LoginForm extends React.Component {
             console.log(message)
             if (message.token) {
                 localStorage.setItem("token", message.token)
+                this.props.login()
                 this.props.history.push({
                     pathname: '/',
                     state: {
@@ -83,4 +86,4 @@ class LoginForm extends React.Component {
     }
 }
 
-export default withRouter(LoginForm)
+export default withRouter(connect(null, {login})(LoginForm))

@@ -1,6 +1,9 @@
 import React from 'react'
 import { Menu, Container } from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
+import {connect} from 'react-redux'
+
+import setLogout from '../actions/logout'
 
 const renderLoggedOutView = () => {
     return <React.Fragment>
@@ -25,6 +28,7 @@ const loggedInView = props =>{
 
 const logout = props => {
     localStorage.removeItem('token')
+    props.setLoggedOut()
     props.history.push({
         pathname: "/",
         state: {loggedIn: false}
@@ -39,4 +43,10 @@ const Navbar = props => {
     </Menu>
 }
 
-export default withRouter(Navbar);
+const mapStateToProps = state => {
+    return {
+        loggedIn: state.loggedIn
+    }
+}
+
+export default withRouter(connect(mapStateToProps, {setLoggedOut: setLogout})(Navbar))
