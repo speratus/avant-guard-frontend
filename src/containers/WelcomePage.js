@@ -1,7 +1,17 @@
 import React from 'react'
 
-const WelcomePage = props => {
+import {withRouter} from 'react-router-dom'
 
+const WelcomePage = props => {
+    if (!localStorage.getItem('token')) {
+        props.history.push({
+            pathname: "/login",
+            state: {
+                loggedIn: false
+            }
+        })
+    }
+    return null
 }
 
-export default WelcomePage
+export default withRouter(WelcomePage)
