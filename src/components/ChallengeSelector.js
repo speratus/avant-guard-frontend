@@ -78,10 +78,12 @@ class ChallengeSelector extends React.Component {
                 <Button 
                     name='genres'
                     onClick={this.handleGameTypeChanged}
+                    active={this.props.gameType === 'genres'}
                 >Genre</Button>
                 <Button 
                     name='artists'
                     onClick={this.handleGameTypeChanged}
+                    active={this.props.gameType === 'artists'}
                 >Artist</Button>
             </Button.Group>
             <Search 
