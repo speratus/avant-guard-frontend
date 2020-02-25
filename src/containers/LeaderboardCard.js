@@ -3,7 +3,7 @@ import { Segment, Header } from 'semantic-ui-react'
 import {connect} from 'react-redux'
 
 import LeaderboardTable from './LeaderboardTable'
-import {BASE_URL} from './index'
+import {BASE_URL} from '../index'
 import addRankings from '../actions/addRankings'
 
 class LeaderboardCard extends React.Component {
@@ -11,6 +11,7 @@ class LeaderboardCard extends React.Component {
     componentDidMount() {
         fetch(BASE_URL+'/rankings').then(res=>res.json())
             .then(rankings => {
+                console.log(rankings)
                 this.props.addRankings(rankings)
             })
     }
@@ -29,4 +30,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect({addRankings})(LeaderboardCard)
+export default connect(mapStateToProps, {addRankings})(LeaderboardCard)

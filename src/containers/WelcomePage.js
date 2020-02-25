@@ -10,6 +10,8 @@ import addGameData from '../actions/addGameData'
 import ChallengeSelector from '../components/ChallengeSelector'
 import {BASE_URL} from '../index'
 import nextGamePhase from '../actions/nextGamePhase'
+import LeaderboardCard from './LeaderboardCard'
+
 
 const WelcomePage = props => {
     if (!localStorage.getItem('token')) {
@@ -24,6 +26,7 @@ const WelcomePage = props => {
             textAlign='center'
             style={{height: '100vh'}}
             verticalAlign='middle'
+            columns={2}
         >
             <Grid.Column width={9}>
                 <Segment>
@@ -37,6 +40,9 @@ const WelcomePage = props => {
                         Start Game!
                     </Button>
                 </Segment>
+            </Grid.Column>
+            <Grid.Column>
+                {/* <LeaderboardCard /> */}
             </Grid.Column>
         </Grid>
         {/* <Dimmer {...{active: props.waitingForGame}}>

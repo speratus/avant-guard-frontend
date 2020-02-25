@@ -9,7 +9,10 @@ let initialState = []
 builder.setInitialState(initialState)
 
 builder.addAction(addRankings, (state, action) => {
-    return action.rankings
+    if (action.rankings)
+        return action.rankings
+    else
+        return state
 })
 
 export default builder.buildReducer()
