@@ -6,14 +6,25 @@ import Navbar from './components/Navbar'
 import WelcomePage from './containers/WelcomePage'
 import LoginForm from './components/LoginForm'
 import SignupForm from './components/SignupForm'
+import GameContainer from './containers/GameContainer'
 
-function App() {
+import {connect} from 'react-redux'
+
+const doDisplayWelcome = props => {
+  if (props.inGame) {
+    return <GameContainer />
+  } else {
+    return <WelcomePage />
+  }
+}
+
+function App(props) {
   return (
     <Router>
       <Navbar />
 
       <Route exact path="/">
-        <WelcomePage />
+        {doDisplayWelcome(props)}
       </Route>
 
       <Route path="/login">
@@ -28,4 +39,10 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    inGame: state.gameLoading.inGame
+  }
+}
+
+export default connect(mapStateToProps)(App);

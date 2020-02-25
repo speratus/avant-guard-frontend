@@ -1,9 +1,10 @@
 import generator from 'redux-reducer-builder'
 
-import addOptionData from '../actions/addOptionData'
 import changeGameType from '../actions/changeGameType'
 import selectArtist from '../actions/selectArtist'
 import selectGenre from '../actions/selectGenre'
+import addOptionArtists from '../actions/addOptionArtists'
+import addOptionGenres from '../actions/addOptionGenres'
 
 const builder = generator()
 
@@ -17,10 +18,16 @@ const initialState = {
 
 builder.setInitialState(initialState)
 
-builder.addAction(addOptionData, (state, action) => {
+builder.addAction(addOptionArtists, (state, action) => {
     return {
         ...state,
-        artists: action.artists,
+        artists: action.artists
+    }
+})
+
+builder.addAction(addOptionGenres, (state, action) => {
+    return {
+        ...state,
         genres: action.genres
     }
 })

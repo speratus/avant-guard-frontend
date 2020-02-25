@@ -5,7 +5,8 @@ import {Header, Button, Search, Container} from 'semantic-ui-react'
 import selectArtist from '../actions/selectArtist'
 import selectGenre from '../actions/selectGenre'
 import changeGameType from '../actions/changeGameType'
-import addOptionData from '../actions/addOptionData'
+import addOptionArtists from '../actions/addOptionArtists'
+import addOptionGenres from '../actions/addOptionGenres'
 
 import {BASE_URL} from '../index'
 
@@ -37,7 +38,7 @@ class ChallengeSelector extends React.Component {
         }).then(res=>res.json()).then(genres => {
             // console.log(genres)
             const genreNames = genres.map(g => g.name)
-            this.props.addOptionData(this.props.artists, genreNames)
+            this.props.addOptionGenres(genreNames)
         })
 
         fetch(BASE_URL+'/artists', {
@@ -49,7 +50,7 @@ class ChallengeSelector extends React.Component {
         }).then(res=>res.json()).then(artists => {
             // console.log(artists)
             const artistNames = artists.map(a=>a.name)
-            this.props.addOptionData(artistNames, this.props.genreNames)
+            this.props.addOptionArtists(artistNames)
         })
     }
 
@@ -102,4 +103,10 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {selectArtist, selectGenre, changeGameType, addOptionData})(ChallengeSelector)
+export default connect(mapStateToProps, {
+    selectArtist, 
+    selectGenre, 
+    changeGameType,
+    addOptionArtists,
+    addOptionGenres
+})(ChallengeSelector)

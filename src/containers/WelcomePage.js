@@ -40,9 +40,9 @@ const WelcomePage = props => {
                 </Segment>
             </Grid.Column>
         </Grid>
-        <Dimmer active={props.waitingForGame}>
+        {/* <Dimmer {...{active: props.waitingForGame}}>
             <Loader />
-        </Dimmer>
+        </Dimmer> */}
     </Container>
 }
 
@@ -74,10 +74,11 @@ const handleStartGame = props => {
 }
 
 const mapStateToProps = state => {
+    console.log('waitingForGame is', state.gameLoading.waitingForGame)
     return {
         ...state.gameOptions,
         waitingForGame: state.gameLoading.waitingForGame
     }
 }
 
-export default withRouter(connect(mapStateToProps, {logout, login, waitingForGame, inGame})(WelcomePage))
+export default withRouter(connect(mapStateToProps, {logout, login, waitingForGame, inGame, addGameData})(WelcomePage))
