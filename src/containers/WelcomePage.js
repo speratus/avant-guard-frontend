@@ -42,7 +42,7 @@ const WelcomePage = props => {
                 </Segment>
             </Grid.Column>
             <Grid.Column>
-                {/* <LeaderboardCard /> */}
+                <LeaderboardCard />
             </Grid.Column>
         </Grid>
         {/* <Dimmer {...{active: props.waitingForGame}}>

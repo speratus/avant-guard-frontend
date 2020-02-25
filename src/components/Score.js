@@ -9,8 +9,8 @@ const Score = props => {
         </React.Fragment>
     } else {
         return <React.Fragment>
-            <Table.Cell>{props.score.user.name}</Table.Cell>
-            <Table.Cell>{props.score.score}</Table.Cell>
+            <Table.Cell>{props.score.user.username}</Table.Cell>
+            <Table.Cell>{props.score.total_score}</Table.Cell>
         </React.Fragment>
     }
 }
