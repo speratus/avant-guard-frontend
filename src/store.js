@@ -5,6 +5,7 @@ import gameOptionsReducer from './reducers/gameOptionsReducer'
 import timerReducer from './reducers/timerReducer'
 import resultsReducer from './reducers/resultsReducer'
 import gamePhaseReducer from './reducers/gamePhaseReducer'
+import rankingsReducer from './reducers/rankingsReducer'
 
 const reducers = combineReducers({
     game: gameReducer,
@@ -12,7 +13,8 @@ const reducers = combineReducers({
     gameOptions: gameOptionsReducer,
     timer: timerReducer,
     gameResults: resultsReducer,
-    gamePhase: gamePhaseReducer
+    gamePhase: gamePhaseReducer,
+    rankings: rankingsReducer
 })
 
 export default createStore(

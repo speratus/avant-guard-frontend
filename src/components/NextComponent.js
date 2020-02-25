@@ -10,6 +10,7 @@ import resetQuestionAnswer from '../actions/resetQuestionAnswer'
 import stepQuestion from '../utils/stepQuestion'
 import setGameResults from '../actions/setGameResults'
 import nextGamePhase from '../actions/nextGamePhase'
+import resetGameState from '../actions/resetGameState'
 
 const NextComponent = props => {
     // console.log(props.answer)
@@ -46,6 +47,7 @@ export default connect(
         resetTimer,
         resetQuestionAnswer,
         setGameResults,
-        nextGamePhase
+        nextGamePhase,
+        resetGameState
     }
 )(NextComponent)

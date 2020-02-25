@@ -1,11 +1,14 @@
 import React from 'react'
-import { Grid, Header, Segment, Container, Rail } from 'semantic-ui-react'
+import { Grid, Header, Segment, Container, Rail, Button } from 'semantic-ui-react'
 import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom'
 
 import Question from '../components/Question'
 import NextComponent from '../components/NextComponent'
 import Timer from '../components/Timer'
 import AnswerContainer from './AnswerContainer'
+
+import resetGamePhase from '../actions/resetGamePhase'
 
 const renderInProgressGame = props => {
     return <Grid centered columns={3}>
@@ -31,12 +34,12 @@ const renderInProgressGame = props => {
 }
 
 const isGameInProgress = props => {
-    console.log('GAMEPHASE:', props.gamePhase)
+    // console.log('GAMEPHASE:', props.gamePhase)
     if (props.gamePhase === 'ingame') {
-        console.log('now in game')
+        // console.log('now in game')
         return renderInProgressGame(props)
     } else if (props.gamePhase === 'viewingresults') {
-        console.log('viewing...')
+        console.log('viewing results...')
         return renderCompleteGame(props)
     } else {
         console.log('waiting for game')
@@ -52,23 +55,38 @@ const GameContainer = props => {
 
 const renderCompleteGame = props => {
     console.log('game results', props.results)
-    return <Grid centered columns={3} verticalAlign='middle' style={{height: '100vh'}}>
+    return <Grid 
+        centered 
+        columns={2} 
+        verticalAlign='middle' 
+        style={{height: '100vh'}}
+        textAlign='center'
+    >
         <Grid.Row>
             <Grid.Column width={3}>
+                <p><strong>Title: </strong>{props.results.song.title}</p>
                 <p><strong>Album: </strong>{props.results.song.album}</p>
                 <p><strong>Artist: </strong>{props.results.song.artist.name}</p>
                 <p><strong>Released: </strong>{props.results.song.release_date}</p>
             </Grid.Column>
             <Grid.Column width={12}>
                 <Header as='h1'>Game results</Header>
-                <Header.Subheader><strong>Multiplier: </strong>{props.results.multiplier}</Header.Subheader>
+                <Header.Subheader>
+                    <strong>Multiplier: </strong>{props.results.multiplier}&nbsp;
+                    <strong>Final Score: </strong>{props.results.final_score}
+                </Header.Subheader>
                 <AnswerContainer 
                     questions={props.results.questions} 
                     multiplier={props.results.multiplier}
                 />
+                <Button large primary onClick={() => goHome(props)}>Go Home</Button>
             </Grid.Column>
         </Grid.Row>
     </Grid>
+}
+
+const goHome = props => {
+    props.resetGamePhase()
 }
 
 const mapStateToProps = state => {
@@ -79,4 +97,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(GameContainer)
+export default connect(mapStateToProps, {resetGamePhase})(GameContainer)

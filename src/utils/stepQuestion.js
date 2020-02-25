@@ -1,6 +1,7 @@
 import {BASE_URL} from '../index'
 
 const submit = (answer, question) => {
+    console.log('submitting question answer')
     fetch(BASE_URL+`/questions/${question.id}`, {
         method: 'PATCH',
         headers: {
@@ -23,17 +24,21 @@ export default function(props) {
         props.resetTimer()
         props.gotoNextQuestion()
     } else {
-        fetch(BASE_URL+`/games/${props.gameId}`, {
-            method: 'PATCH',
-            headers: {
-                Accept: 'application/json',
-                'Access-Token': localStorage.getItem('token')
-            }
-        }).then(res=>res.json()).then(gameData => {
-            console.log(gameData)
-            //Fill this out!
-            props.setGameResults(gameData)
-            props.nextGamePhase()
-        })
+        setTimeout(() => {
+            fetch(BASE_URL+`/games/${props.gameId}`, {
+                method: 'PATCH',
+                headers: {
+                    Accept: 'application/json',
+                    'Access-Token': localStorage.getItem('token')
+                }
+            }).then(res=>res.json()).then(gameData => {
+                console.log(gameData)
+                //Fill this out!
+                props.setGameResults(gameData)
+                props.nextGamePhase()
+                props.resetGameState()
+            })
+        }, 50)
+        
     }
 }

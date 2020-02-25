@@ -9,6 +9,7 @@ import resetQuestionAnswer from '../actions/resetQuestionAnswer'
 import stepQuestion from '../utils/stepQuestion'
 import setGameResults from '../actions/setGameResults'
 import nextGamePhase from '../actions/nextGamePhase'
+import resetGameState from '../actions/resetGameState'
 
 class Timer extends React.Component {
 
@@ -57,5 +58,6 @@ export default connect(
         resetQuestionAnswer,
         setGameResults,
         nextGamePhase,
+        resetGameState
     }
 )(Timer)
