@@ -7,10 +7,9 @@ import {Container, Grid, Segment, Header, Button, Dimmer, Loader} from 'semantic
 import logout from '../actions/logout'
 import login from '../actions/login'
 import addGameData from '../actions/addGameData'
-import waitingForGame from '../actions/waitingForGame'
-import inGame from '../actions/inGame'
 import ChallengeSelector from '../components/ChallengeSelector'
 import {BASE_URL} from '../index'
+import nextGamePhase from '../actions/nextGamePhase'
 
 const WelcomePage = props => {
     if (!localStorage.getItem('token')) {
@@ -68,17 +67,24 @@ const handleStartGame = props => {
     }).then(res=>res.json()).then(game => {
         console.log(game)
         props.addGameData(game.questions, game.lyrics, game.id, game.multiplier)
-        props.inGame()
+        props.nextGamePhase()
     })
-    props.waitingForGame()
+    props.nextGamePhase()
 }
 
 const mapStateToProps = state => {
-    console.log('waitingForGame is', state.gameLoading.waitingForGame)
     return {
         ...state.gameOptions,
-        waitingForGame: state.gameLoading.waitingForGame
+        gamePhase: state.gamePhase
     }
 }
 
-export default withRouter(connect(mapStateToProps, {logout, login, waitingForGame, inGame, addGameData})(WelcomePage))
+export default withRouter(connect(
+    mapStateToProps, 
+    {
+        logout, 
+        login,
+        addGameData,
+        nextGamePhase
+    }
+)(WelcomePage))

@@ -2,6 +2,6 @@ import ActionTypes from './ActionTypes'
 
 export default function() {
     return {
-        type: ActionTypes.INGAME
+        type: ActionTypes.RESET_GAME_PHASE
     }
 }

@@ -8,29 +8,14 @@ import gotoNextQuestion from '../actions/gotoNextQuestion'
 import resetTimer from '../actions/resetTimer'
 import resetQuestionAnswer from '../actions/resetQuestionAnswer'
 import stepQuestion from '../utils/stepQuestion'
-
-const onSubmit = (answer, question) => {
-    fetch(BASE_URL+`/questions/${question.id}`, {
-        method: 'PATCH',
-        headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-            'Access-Token': localStorage.getItem('token')
-        },
-        body: JSON.stringify({
-            question: {
-                answer: answer
-            }
-        })
-    }).then(res=>res.json()).then(console.log)
-}
+import setGameResults from '../actions/setGameResults'
+import nextGamePhase from '../actions/nextGamePhase'
 
 const NextComponent = props => {
-    console.log(props.answer)
+    // console.log(props.answer)
     return <Form onSubmit={
         e => {
             e.preventDefault()
-            onSubmit(props.answer, props.question)
             stepQuestion(props)
         }
     }>
@@ -59,6 +44,8 @@ export default connect(
         updateQuestionAnswer,
         gotoNextQuestion,
         resetTimer,
-        resetQuestionAnswer
+        resetQuestionAnswer,
+        setGameResults,
+        nextGamePhase
     }
 )(NextComponent)

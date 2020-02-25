@@ -30,7 +30,9 @@ builder.addAction(addGameData, (state, action) => {
     return {
         ...state,
         questions: action.questions,
-        lyrics: action.lyrics
+        lyrics: action.lyrics,
+        id: action.id,
+        multiplier: action.multiplier
     }
 })
 

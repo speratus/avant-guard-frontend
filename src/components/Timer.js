@@ -7,6 +7,8 @@ import decreaseTimer from '../actions/decreaseTimer'
 import resetTimer from '../actions/resetTimer'
 import resetQuestionAnswer from '../actions/resetQuestionAnswer'
 import stepQuestion from '../utils/stepQuestion'
+import setGameResults from '../actions/setGameResults'
+import nextGamePhase from '../actions/nextGamePhase'
 
 class Timer extends React.Component {
 
@@ -40,7 +42,9 @@ const mapStateToProps = state => {
         ...state.timer,
         currentQuestion: state.game.currentQuestion,
         questionCount: state.game.questions.length,
-        gameId: state.game.id
+        gameId: state.game.id,
+        answer: state.game.currentAnswer,
+        question: state.game.questions[state.game.currentQuestion]
     }
 }
 
@@ -50,6 +54,8 @@ export default connect(
         decreaseTimer, 
         gotoNextQuestion, 
         resetTimer,
-        resetQuestionAnswer
+        resetQuestionAnswer,
+        setGameResults,
+        nextGamePhase,
     }
 )(Timer)

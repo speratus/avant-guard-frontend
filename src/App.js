@@ -11,10 +11,12 @@ import GameContainer from './containers/GameContainer'
 import {connect} from 'react-redux'
 
 const doDisplayWelcome = props => {
-  if (props.inGame) {
-    return <GameContainer />
-  } else {
+  if (props.gamePhase === 'none') {
+    console.log('no game, displaying welcome.')
     return <WelcomePage />
+  } else {
+    console.log('game in progress, displaying gamecontainer')
+    return <GameContainer />
   }
 }
 
@@ -41,7 +43,7 @@ function App(props) {
 
 const mapStateToProps = state => {
   return {
-    inGame: state.gameLoading.inGame
+    gamePhase: state.gamePhase
   }
 }
 

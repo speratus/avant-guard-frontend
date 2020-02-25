@@ -3,16 +3,16 @@ import gameReducer from './reducers/GameReducer'
 import sessionsReducer from './reducers/sessionsReducer'
 import gameOptionsReducer from './reducers/gameOptionsReducer'
 import timerReducer from './reducers/timerReducer'
-import gameLoading from './reducers/gameLoading'
 import resultsReducer from './reducers/resultsReducer'
+import gamePhaseReducer from './reducers/gamePhaseReducer'
 
 const reducers = combineReducers({
     game: gameReducer,
     loggedIn: sessionsReducer,
     gameOptions: gameOptionsReducer,
     timer: timerReducer,
-    gameLoading,
-    gameResults: resultsReducer
+    gameResults: resultsReducer,
+    gamePhase: gamePhaseReducer
 })
 
 export default createStore(
