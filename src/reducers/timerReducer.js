@@ -6,13 +6,14 @@ import resetTimer from '../actions/resetTimer'
 const builder = generate()
 
 const initialState = {
-    timeRemaining: 20
+    timeRemaining: 15
 }
 
 builder.setInitialState(initialState)
 
 builder.addAction(decreaseTimer, (state, action) => {
     return {
+        ...state,
         timeRemaining: state.timeRemaining-1
     }
 })

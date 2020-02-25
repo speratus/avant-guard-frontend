@@ -5,6 +5,7 @@ import { Segment, Header } from 'semantic-ui-react'
 import gotoNextQuestion from '../actions/gotoNextQuestion'
 import decreaseTimer from '../actions/decreaseTimer'
 import resetTimer from '../actions/resetTimer'
+import resetQuestionAnswer from '../actions/resetQuestionAnswer'
 
 class Timer extends React.Component {
 
@@ -13,7 +14,9 @@ class Timer extends React.Component {
     componentDidMount() {
         this.interval = setInterval(() => {
             if (this.props.timeRemaining === 0) {
+                this.props.resetQuestionAnswer()
                 this.props.resetTimer()
+                this.props.gotoNextQuestion()
             } else {
                 this.props.decreaseTimer()
             }
@@ -25,10 +28,7 @@ class Timer extends React.Component {
     }
 
     render() {
-        if (this.props.timeRemaining === 0) {
-            this.props.gotoNextQuestion()
-        }
-        return <Segment>
+        return <Segment style={{maxWidth: '8em'}}>
             <Header as='h1' style={{fontSize: '4em'}}>{this.props.timeRemaining}</Header>
             <Header.Subheader>Seconds remaining</Header.Subheader>
         </Segment>
@@ -47,6 +47,7 @@ export default connect(
     {
         decreaseTimer, 
         gotoNextQuestion, 
-        resetTimer
+        resetTimer,
+        resetQuestionAnswer
     }
 )(Timer)

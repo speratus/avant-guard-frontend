@@ -12,8 +12,8 @@ const renderAsQuestion = (props) => {
     if (props.asAnswer) {
 
     } else {
-        console.log('displaying a question and not the answer')
-        console.log('The question is', props.question)
+        // console.log('displaying a question and not the answer')
+        // console.log('The question is', props.question)
         return <Header>{questionTypes[props.question.question_type]}</Header>
     }
 }
