@@ -12,7 +12,9 @@ let initialState = {
     currentQuestion: 0,
     questions: [],
     lyrics: "",
-    currentAnswer: ""
+    currentAnswer: "",
+    id: 0,
+    multiplier: 0
 }
 
 builder.setInitialState(initialState)

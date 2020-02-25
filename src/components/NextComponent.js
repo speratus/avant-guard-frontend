@@ -7,12 +7,7 @@ import {BASE_URL} from '../index'
 import gotoNextQuestion from '../actions/gotoNextQuestion'
 import resetTimer from '../actions/resetTimer'
 import resetQuestionAnswer from '../actions/resetQuestionAnswer'
-
-const clearAnswer = props => {
-    props.resetQuestionAnswer()
-    props.resetTimer()
-    props.gotoNextQuestion()
-}
+import stepQuestion from '../utils/stepQuestion'
 
 const onSubmit = (answer, question) => {
     fetch(BASE_URL+`/questions/${question.id}`, {
@@ -36,7 +31,7 @@ const NextComponent = props => {
         e => {
             e.preventDefault()
             onSubmit(props.answer, props.question)
-            clearAnswer(props)
+            stepQuestion(props)
         }
     }>
         <Form.Input 
@@ -53,7 +48,8 @@ const mapStateToProps = state => {
         currentQuestion: state.game.currentQuestion,
         questionCount: state.game.questions.length,
         question: state.game.questions[state.game.currentQuestion],
-        answer: state.game.currentAnswer
+        answer: state.game.currentAnswer,
+        gameId: state.game.id
     }
 }
 

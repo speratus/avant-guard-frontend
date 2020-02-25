@@ -6,6 +6,7 @@ import gotoNextQuestion from '../actions/gotoNextQuestion'
 import decreaseTimer from '../actions/decreaseTimer'
 import resetTimer from '../actions/resetTimer'
 import resetQuestionAnswer from '../actions/resetQuestionAnswer'
+import stepQuestion from '../utils/stepQuestion'
 
 class Timer extends React.Component {
 
@@ -14,9 +15,7 @@ class Timer extends React.Component {
     componentDidMount() {
         this.interval = setInterval(() => {
             if (this.props.timeRemaining === 0) {
-                this.props.resetQuestionAnswer()
-                this.props.resetTimer()
-                this.props.gotoNextQuestion()
+                stepQuestion(this.props)
             } else {
                 this.props.decreaseTimer()
             }
@@ -38,7 +37,10 @@ class Timer extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        ...state.timer
+        ...state.timer,
+        currentQuestion: state.game.currentQuestion,
+        questionCount: state.game.questions.length,
+        gameId: state.game.id
     }
 }
 

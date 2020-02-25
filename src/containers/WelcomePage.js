@@ -67,7 +67,7 @@ const handleStartGame = props => {
         })
     }).then(res=>res.json()).then(game => {
         console.log(game)
-        props.addGameData(game.questions, game.lyrics)
+        props.addGameData(game.questions, game.lyrics, game.id, game.multiplier)
         props.inGame()
     })
     props.waitingForGame()
