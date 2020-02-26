@@ -28,22 +28,24 @@ const WelcomePage = props => {
             verticalAlign='middle'
             columns={2}
         >
-            <Grid.Column width={9}>
-                <Segment>
-                    <Header as='h1' style={{fontSize: '5em'}}>New Game</Header>
-                    <ChallengeSelector />
-                    <Button 
-                    primary
-                    style={{fontSize: '3em'}}
-                    onClick={()=>handleStartGame(props)}
-                    >
-                        Start Game!
-                    </Button>
-                </Segment>
-            </Grid.Column>
-            <Grid.Column>
-                <LeaderboardCard />
-            </Grid.Column>
+            <Grid.Row>
+                <Grid.Column width={9}>
+                    <Segment>
+                        <Header as='h1' style={{fontSize: '5em'}}>New Game</Header>
+                        <ChallengeSelector />
+                        <Button 
+                        primary
+                        style={{fontSize: '3em'}}
+                        onClick={()=>handleStartGame(props)}
+                        >
+                            Start Game!
+                        </Button>
+                    </Segment>
+                </Grid.Column>
+                <Grid.Column width={5}>
+                    <LeaderboardCard />
+                </Grid.Column>
+            </Grid.Row>
         </Grid>
         {/* <Dimmer {...{active: props.waitingForGame}}>
             <Loader />
