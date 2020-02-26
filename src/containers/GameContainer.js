@@ -16,7 +16,7 @@ const renderInProgressGame = props => {
         <Header as='h1'>Answer the questions about this song</Header>
 
         <Rail position='left' style={{marginTop: '3em'}}>
-            <div>
+            <div style={{fontSize: '1.2em'}}>
                 {props.lyrics.split("\n").map(l => <p>{l}</p>)}
             </div>
         </Rail>
@@ -66,7 +66,9 @@ const renderCompleteGame = props => {
     >
         <Grid.Row>
             <Grid.Column width={3}>
-                <Image src={props.results.image} />
+                {
+                    props.results.image ? <Image src={props.results.image} /> : 'NO IMAGE'
+                }
                 <p><strong>Title: </strong>{props.results.song.title}</p>
                 <p><strong>Album: </strong>{props.results.song.album}</p>
                 <p><strong>Artist: </strong>{props.results.song.artist.name}</p>
