@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Header, Segment, Container, Rail, Button } from 'semantic-ui-react'
+import { Grid, Header, Segment, Container, Rail, Button, Image } from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 
@@ -64,6 +64,7 @@ const renderCompleteGame = props => {
     >
         <Grid.Row>
             <Grid.Column width={3}>
+                <Image src={props.results.image} />
                 <p><strong>Title: </strong>{props.results.song.title}</p>
                 <p><strong>Album: </strong>{props.results.song.album}</p>
                 <p><strong>Artist: </strong>{props.results.song.artist.name}</p>
