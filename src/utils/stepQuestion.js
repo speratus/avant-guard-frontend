@@ -24,6 +24,7 @@ export default function(props) {
         props.resetTimer()
         props.gotoNextQuestion()
     } else {
+        props.resetTimer()
         setTimeout(() => {
             fetch(BASE_URL+`/games/${props.gameId}`, {
                 method: 'PATCH',
