@@ -1,13 +1,20 @@
-import builder from 'redux-reducer-builder'
+import generator from 'redux-reducer-builder'
 
 import gotoNextQuestion from '../actions/gotoNextQuestion'
 import addGameData from '../actions/addGameData'
 import resetGameState from '../actions/resetGameState'
+import updateGameAnswer from '../actions/updateQuestionAnswer'
+import resetQuestionAnswer from '../actions/resetQuestionAnswer'
+
+const builder = generator()
 
 let initialState = {
     currentQuestion: 0,
     questions: [],
-    lyrics: ""
+    lyrics: "",
+    currentAnswer: "",
+    id: 0,
+    multiplier: 0
 }
 
 builder.setInitialState(initialState)
@@ -23,13 +30,29 @@ builder.addAction(addGameData, (state, action) => {
     return {
         ...state,
         questions: action.questions,
-        lyrics: action.lyrics
+        lyrics: action.lyrics,
+        id: action.id,
+        multiplier: action.multiplier
     }
 })
 
 builder.addAction(resetGameState, (state, action) => {
     return {
         ...initialState
+    }
+})
+
+builder.addAction(updateGameAnswer, (state, action) => {
+    return {
+        ...state,
+        currentAnswer: action.answer
+    }
+})
+
+builder.addAction(resetQuestionAnswer, (state, action) => {
+    return {
+        ...state,
+        currentAnswer: ''
     }
 })
 
