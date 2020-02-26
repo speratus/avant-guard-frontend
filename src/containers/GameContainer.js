@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Header, Segment, Container, Rail, Button, Image } from 'semantic-ui-react'
+import { Grid, Header, Segment, Container, Rail, Button, Image, Dimmer, Loader } from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 
@@ -43,7 +43,9 @@ const isGameInProgress = props => {
         return renderCompleteGame(props)
     } else {
         console.log('waiting for game')
-        return null
+        return <Dimmer active>
+            <Loader />
+        </Dimmer>
     }
 }
 
