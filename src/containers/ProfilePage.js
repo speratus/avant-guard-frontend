@@ -1,7 +1,9 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
-import {Container, Grid} from 'semantic-ui-react'
+import {Container, Grid, Button} from 'semantic-ui-react'
 import {connect} from 'react-redux'
+
+import ScoresContainer from './ScoresContainer'
 
 import {BASE_URL} from '../index'
 import setProfileInfo from '../actions/setProfileInfo'
@@ -40,16 +42,28 @@ class ProfilePage extends React.Component {
         })
     }
 
+    determineButtonContent = () => {
+        if (this.props.userId === localStorage.getItem('userId')) {
+            return <Button primary basic>Settings</Button>
+        } else {
+            <Button primary basic>Add Friend</Button>
+        }
+    }
+
     render() {
         return <Container style={{marginTop: '3em'}}>
             <Grid columns={2}>
                 <Grid.Row>
                     <Grid.Column width={2}>
-
+                        <div>
+                            <p>{this.props.name}</p>
+                            <p>{this.props.username}</p>
+                            {this.determineButtonContent()}
+                        </div>
                     </Grid.Column>
 
                     <Grid.Column width={8}>
-
+                        <ScoresContainer />
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
