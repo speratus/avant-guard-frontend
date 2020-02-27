@@ -8,6 +8,7 @@ import ScoresContainer from './ScoresContainer'
 import {BASE_URL} from '../index'
 import setProfileInfo from '../actions/setProfileInfo'
 import addProfileScores from '../actions/addProfileScores'
+import login from '../actions/login'
 
 class ProfilePage extends React.Component {
 
@@ -16,6 +17,8 @@ class ProfilePage extends React.Component {
             this.props.history.push({
                 pathname: '/'
             })
+        } else {
+            this.props.login()
         }
 
         const {userId} = this.props.match.params
@@ -83,7 +86,8 @@ export default withRouter(
         mapStateToProps, 
         {
             setProfileInfo,
-            addProfileScores
+            addProfileScores,
+            login
         }
     )(ProfilePage)
 )
