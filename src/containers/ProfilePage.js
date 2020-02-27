@@ -1,6 +1,12 @@
 import React from 'react'
 
-const ProfilePage = props => {
+import {BASE_URL} from '../index'
+
+class ProfilePage extends React.Component {
+
+    componentDidMount() {
+        fetch(/* finish this fetch request! */)
+    }
 
 }
 
