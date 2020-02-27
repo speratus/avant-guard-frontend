@@ -1,10 +1,17 @@
 import React from 'react'
+import {withRouter} from 'react-router-dom'
 
 import {BASE_URL} from '../index'
 
 class ProfilePage extends React.Component {
 
     componentDidMount() {
+        if (!localStorage.getItem('token')) {
+            this.props.history.push({
+                pathname: '/'
+            })
+        }
+
         const {userId} = this.props.match.params
         fetch(BASE_URL+`/users/${userId}/genre_scores`, {
             method: 'GET',
@@ -19,4 +26,4 @@ class ProfilePage extends React.Component {
 
 }
 
-export default ProfilePage
+export default withRouter(ProfilePage)
