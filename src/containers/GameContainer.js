@@ -11,14 +11,20 @@ import AnswerContainer from './AnswerContainer'
 import resetGamePhase from '../actions/resetGamePhase'
 
 const renderInProgressGame = props => {
+    let challenge
+    if (props.clip_address) {
+        challenge =  <audio controls autoplay src={props.clip_address} />
+    } else {
+        challenge = <div style={{fontSize: '1.2em'}}>
+            {props.lyrics.split("\n").map(l => <p>{l}</p>)}
+        </div>
+    }
     return <Grid centered columns={3}>
     <Grid.Column>
         <Header as='h1'>Answer the questions about this song</Header>
 
         <Rail position='left' style={{marginTop: '3em'}}>
-            <div style={{fontSize: '1.2em'}}>
-                {props.lyrics.split("\n").map(l => <p>{l}</p>)}
-            </div>
+            {challenge}
         </Rail>
 
         <Segment>
