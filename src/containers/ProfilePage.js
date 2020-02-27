@@ -46,7 +46,7 @@ class ProfilePage extends React.Component {
         if (this.props.userId === localStorage.getItem('userId')) {
             return <Button primary basic>Settings</Button>
         } else {
-            <Button primary basic>Add Friend</Button>
+            return <Button primary basic>Add Friend</Button>
         }
     }
 
