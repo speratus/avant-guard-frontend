@@ -16,7 +16,7 @@ const reducers = combineReducers({
     gameResults: resultsReducer,
     gamePhase: gamePhaseReducer,
     rankings: rankingsReducer,
-    profileReducer
+    profileData: profileReducer
 })
 
 export default createStore(
