@@ -40,6 +40,7 @@ class LoginForm extends React.Component {
             console.log(message)
             if (message.token) {
                 localStorage.setItem("token", message.token)
+                localStorage.setItem("userId", message.user_id)
                 this.props.login()
                 this.props.history.push({
                     pathname: '/',
