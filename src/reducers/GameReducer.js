@@ -14,7 +14,8 @@ let initialState = {
     lyrics: "",
     currentAnswer: "",
     id: 0,
-    multiplier: 0
+    multiplier: 0,
+    clip: ''
 }
 
 builder.setInitialState(initialState)
