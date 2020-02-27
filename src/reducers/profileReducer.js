@@ -1,6 +1,7 @@
 import factory from 'redux-reducer-builder'
 
 import setProfileInfo from '../actions/setProfileInfo'
+import addProfileScores from '../actions/addProfileScores'
 
 const builder = factory()
 
@@ -25,6 +26,13 @@ builder.addAction(setProfileInfo, (state, action) => {
     }
     return {
         ...initialState
+    }
+})
+
+builder.addAction(addProfileScores, (state, action) => {
+    return {
+        ...state,
+        scores: action.scores
     }
 })
 
