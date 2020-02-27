@@ -1,8 +1,10 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
 import {Container, Grid} from 'semantic-ui-react'
+import {connect} from 'react-redux'
 
 import {BASE_URL} from '../index'
+import setProfileInfo from '../actions/setProfileInfo'
 
 class ProfilePage extends React.Component {
 
@@ -32,6 +34,7 @@ class ProfilePage extends React.Component {
             }
         }).then(res=>res.json()).then(userData => {
             console.log(userData)
+            this.props.setProfileInfo(userData)
         })
     }
 
@@ -53,4 +56,17 @@ class ProfilePage extends React.Component {
 
 }
 
-export default withRouter(ProfilePage)
+const mapStateToProps = state => {
+    return {
+        ...state.profileData
+    }
+}
+
+export default withRouter(
+    connect(
+        mapStateToProps, 
+        {
+            setProfileInfo
+        }
+    )(ProfilePage)
+)
