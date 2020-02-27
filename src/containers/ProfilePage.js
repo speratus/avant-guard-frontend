@@ -51,18 +51,18 @@ class ProfilePage extends React.Component {
     }
 
     render() {
-        return <Container style={{marginTop: '3em'}}>
-            <Grid columns={2}>
+        return <Container style={{marginTop: '5em', width: '100%'}}>
+            <Grid centered columns={2}>
                 <Grid.Row>
                     <Grid.Column width={2}>
                         <div>
-                            <p>{this.props.name}</p>
-                            <p>{this.props.username}</p>
+                            <p><strong>Name:</strong> {this.props.name}</p>
+                            <p><strong>Username:</strong> {this.props.username}</p>
                             {this.determineButtonContent()}
                         </div>
                     </Grid.Column>
 
-                    <Grid.Column width={8}>
+                    <Grid.Column width={12}>
                         <ScoresContainer />
                     </Grid.Column>
                 </Grid.Row>
