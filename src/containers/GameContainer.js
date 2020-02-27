@@ -13,7 +13,12 @@ import resetGamePhase from '../actions/resetGamePhase'
 const renderInProgressGame = props => {
     let challenge
     if (props.clip) {
-        challenge =  <audio controls autoplay src={props.clip} />
+        challenge =  <audio
+            controls 
+            autoplay 
+            name="media"
+            src={props.clip}
+        />
     } else {
         challenge = <div style={{fontSize: '1.2em'}}>
             {props.lyrics.split("\n").map(l => <p>{l}</p>)}
