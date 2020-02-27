@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 
 import {BASE_URL} from '../index'
 import setProfileInfo from '../actions/setProfileInfo'
+import addProfileScores from '../actions/addProfileScores'
 
 class ProfilePage extends React.Component {
 
@@ -24,6 +25,7 @@ class ProfilePage extends React.Component {
             }
         }).then(res=> res.json()).then(scores => {
             console.log(scores)
+            this.props.addProfileScores(scores)
         })
 
         fetch(BASE_URL+`/users/${userId}`, {
@@ -66,7 +68,8 @@ export default withRouter(
     connect(
         mapStateToProps, 
         {
-            setProfileInfo
+            setProfileInfo,
+            addProfileScores
         }
     )(ProfilePage)
 )
