@@ -7,7 +7,8 @@ const builder = factory()
 const initialState = {
     userId: 0,
     name: '',
-    username: ''
+    username: '',
+    scores: []
 }
 
 builder.setInitialState(initialState)
@@ -16,6 +17,7 @@ builder.addAction(setProfileInfo, (state, action) => {
     if (action.profile) {
         const {id, name, username} = action.profile
         return {
+            ...state,
             userId: id,
             name,
             username
