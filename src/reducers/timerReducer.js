@@ -6,7 +6,7 @@ import resetTimer from '../actions/resetTimer'
 const builder = generate()
 
 const initialState = {
-    timeRemaining: 15
+    timeRemaining: 35
 }
 
 builder.setInitialState(initialState)
