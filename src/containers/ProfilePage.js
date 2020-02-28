@@ -54,6 +54,10 @@ class ProfilePage extends React.Component {
             const friendId = parseInt(userId)
             const currentUserId = parseInt(localStorage.getItem('userId'))
             // console.log(currentUserId, friendId)
+            const friendIds = this.props.friendsList.map(f => f.id)
+            if(friendIds.includes(friendId)) {
+                return null
+            }
             return <Button primary basic
                 onClick={() => postNewFriendship(currentUserId, friendId).then(console.log)}
             >Add Friend</Button>
@@ -84,7 +88,8 @@ class ProfilePage extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        ...state.profileData
+        ...state.profileData,
+        friendsList: state.friendsList
     }
 }
 
