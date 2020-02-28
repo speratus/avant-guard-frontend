@@ -4,6 +4,21 @@ import {connect} from 'react-redux'
 
 import Score from '../components/Score'
 
+const scoresOrError = props => {
+    if (props.scores.length === 0) {
+        return <Table.Row>
+            <Table.Cell>NO DATA AVAILABLE AT THIS TIME</Table.Cell>
+            <Table.Cell>NO DATA AVAILABLE AT THIS TIME</Table.Cell>
+        </Table.Row>
+    } else {
+        return props.scores.map(s => {
+            return <Table.Row>
+                <Score useGenre score={s} />
+            </Table.Row>
+        })
+    }
+}
+
 const ScoresTable = props => {
     return <Table celled>
         <Table.Header>
@@ -14,13 +29,7 @@ const ScoresTable = props => {
         </Table.Header>
 
         <Table.Body>
-            {
-                props.scores.map(s => {
-                    return <Table.Row>
-                        <Score useGenre score={s} />
-                    </Table.Row>
-                })
-            }
+            {scoresOrError(props)}
         </Table.Body>
     </Table>
 }
