@@ -20,6 +20,7 @@ const WelcomePage = props => {
         props.history.push({
             pathname: "/login"
         })
+        return null;
     } else {
         props.login()
         return <Container style={{marginTop: '3em'}}>
