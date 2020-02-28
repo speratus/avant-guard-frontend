@@ -17,7 +17,7 @@ class FriendsListContainer extends React.Component {
     }
 
     render() {
-        return <Container style={{marginTop: '3em'}}>
+        return <Container style={{marginTop: '5em'}}>
             <Grid columns={5}>
                 <Grid.Row>
                     {
