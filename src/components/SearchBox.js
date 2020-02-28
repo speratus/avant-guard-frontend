@@ -3,9 +3,16 @@ import { Segment, Search } from 'semantic-ui-react'
 import {connect} from 'react-redux'
 
 import loadUserData from '../actions/loadUserData'
+import {fetchUserList} from '../fetches/userFetches'
 
 class SearchBox extends React.Component {
 
+    componentDidMount() {
+        fetchUserList().then(users => {
+            console.log('user list:', users)
+            this.props.loadUserList(users)
+        })
+    }
 
     render() {
         return <Segment fluid>
