@@ -21,8 +21,8 @@ class FriendsListContainer extends React.Component {
             <Grid columns={5}>
                 <Grid.Row>
                     {
-                        this.props.friendsList.map(f => (
-                            <Grid.Column>
+                        this.props.friendsList.map((f, i) => (
+                            <Grid.Column key={i}>
                                 <FriendCard user={f} />
                             </Grid.Column>
                         ))

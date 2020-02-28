@@ -12,6 +12,7 @@ const FriendCard = props => {
 
         <Card.Content extra>
             <Button basic
+                fluid
                 onClick={() => {
                     props.history.push({
                         pathname: `/users/${id}`

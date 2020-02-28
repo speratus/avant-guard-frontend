@@ -41,9 +41,10 @@ class SearchBox extends React.Component {
     }
 
     render() {
-        return <Segment fluid>
+        return <Segment fluid='true'>
             <Header as='h1'>Search for Friends</Header>
             <Search 
+                fluid
                 onSearchChange={(e, {value}) => this.props.updateUserSearch(value)}
                 onResultSelect={this.onResultSelect}
                 value={this.props.search}
