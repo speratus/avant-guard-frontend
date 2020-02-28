@@ -30,3 +30,13 @@ export function postNewFriendship(userId, friendId) {
         body: JSON.stringify(data)
     }).then(res=>res.json())
 }
+
+export function getFriends() {
+    return fetch(BASE_URL+`/users/${localStorage.getItem('userId')}/friends`, {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json',
+            'Access-Token': localStorage.getItem('token')
+        }
+    }).then(res=>res.json())
+}
