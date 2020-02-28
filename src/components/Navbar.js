@@ -7,9 +7,9 @@ import setLogout from '../actions/logout'
 
 const renderLoggedOutView = () => {
     return <React.Fragment>
-        <Container>
+        {/* <Container>
             <Menu.Item as={Link} to="/login">Home</Menu.Item>
-        </Container>
+        </Container> */}
         <Menu.Menu position="right">
             <Menu.Item as={Link} to="/signup">Sign up</Menu.Item>
         </Menu.Menu>
@@ -18,16 +18,21 @@ const renderLoggedOutView = () => {
 
 const loggedInView = props =>{
     return <React.Fragment>
-        <Menu.Item as={Link} to="/">Home</Menu.Item>
+        
         <Menu.Item as={Link} to="/friends">Friends</Menu.Item>
         <Menu.Menu position="right">
+            <Menu.Item onClick={() => {
+                props.history.push({
+                    pathname: `/users/${localStorage.getItem('userId')}`
+                })
+            }}>Profile</Menu.Item>
             <Menu.Item onClick={() => logout(props)}>Logout</Menu.Item>
         </Menu.Menu>
     </React.Fragment>
 }
 
 const logout = props => {
-    localStorage.removeItem('token')
+    localStorage.clear()
     props.setLoggedOut()
     props.history.push({
         pathname: "/",
@@ -37,6 +42,7 @@ const logout = props => {
 
 const Navbar = props => {
     return <Menu fixed='top' inverted>
+        <Menu.Item as={Link} to="/">Home</Menu.Item>
         {
             props.loggedIn ? loggedInView(props) : renderLoggedOutView()
         }
