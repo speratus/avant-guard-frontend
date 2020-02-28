@@ -3,6 +3,7 @@ import { Segment, Search } from 'semantic-ui-react'
 import {connect} from 'react-redux'
 
 import loadUserData from '../actions/loadUserData'
+import updateUserSearch from '../actions/updateUserSearch'
 import {fetchUserList} from '../fetches/userFetches'
 
 class SearchBox extends React.Component {
@@ -31,6 +32,7 @@ const mapStateToProps = state => {
 export default connect(
     mapStateToProps,
     {
-        loadUserList: loadUserData
+        loadUserList: loadUserData,
+        updateUserSearch
     }
 )(SearchBox)
