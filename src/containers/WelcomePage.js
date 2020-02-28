@@ -2,7 +2,7 @@ import React from 'react'
 
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {Container, Grid, Segment, Header, Button, Dimmer, Loader} from 'semantic-ui-react'
+import {Container, Grid, Segment, Header, Button, Dimmer, Loader, Search} from 'semantic-ui-react'
 
 import logout from '../actions/logout'
 import login from '../actions/login'
@@ -11,6 +11,7 @@ import ChallengeSelector from '../components/ChallengeSelector'
 import {BASE_URL} from '../index'
 import nextGamePhase from '../actions/nextGamePhase'
 import LeaderboardCard from './LeaderboardCard'
+import SearchBox from '../components/SearchBox'
 
 
 const WelcomePage = props => {
@@ -46,10 +47,13 @@ const WelcomePage = props => {
                         <LeaderboardCard />
                     </Grid.Column>
                 </Grid.Row>
+
+                <Grid.Row>
+                    <Grid.Column width={16} >
+                        <SearchBox />
+                    </Grid.Column>
+                </Grid.Row>
             </Grid>
-            {/* <Dimmer {...{active: props.waitingForGame}}>
-                <Loader />
-            </Dimmer> */}
         </Container>
     }
 }
