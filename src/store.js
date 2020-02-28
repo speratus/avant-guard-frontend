@@ -8,6 +8,7 @@ import gamePhaseReducer from './reducers/gamePhaseReducer'
 import rankingsReducer from './reducers/rankingsReducer'
 import profileReducer from './reducers/profileReducer'
 import userListReducer from './reducers/userListReducer'
+import friendsListReducer from './reducers/friendsListReducer'
 
 const reducers = combineReducers({
     game: gameReducer,
@@ -18,7 +19,8 @@ const reducers = combineReducers({
     gamePhase: gamePhaseReducer,
     rankings: rankingsReducer,
     profileData: profileReducer,
-    userList: userListReducer
+    userList: userListReducer,
+    friendsList: friendsListReducer
 })
 
 export default createStore(
