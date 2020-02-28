@@ -1,5 +1,5 @@
 import React from 'react'
-import { Segment, Search } from 'semantic-ui-react'
+import { Segment, Search, Header } from 'semantic-ui-react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 
