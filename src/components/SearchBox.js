@@ -15,6 +15,10 @@ class SearchBox extends React.Component {
         })
     }
 
+    filterUsersBySearch = () => {
+
+    }
+
     render() {
         return <Segment fluid>
             <Header as='h1'>Search for Friends</Header>
@@ -25,7 +29,7 @@ class SearchBox extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        userList: state.userList
+        ...state.userList
     }
 }
 
