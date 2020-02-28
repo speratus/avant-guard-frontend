@@ -11,8 +11,8 @@ const scoresOrError = props => {
             <Table.Cell>NO DATA AVAILABLE AT THIS TIME</Table.Cell>
         </Table.Row>
     } else {
-        return props.scores.map(s => {
-            return <Table.Row>
+        return props.scores.map((s, i) => {
+            return <Table.Row key={i}>
                 <Score useGenre score={s} />
             </Table.Row>
         })
