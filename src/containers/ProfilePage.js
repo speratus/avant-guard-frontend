@@ -9,6 +9,7 @@ import {BASE_URL} from '../index'
 import setProfileInfo from '../actions/setProfileInfo'
 import addProfileScores from '../actions/addProfileScores'
 import login from '../actions/login'
+import {postNewFriendship} from '../fetches/userFetches'
 
 class ProfilePage extends React.Component {
 
@@ -49,7 +50,13 @@ class ProfilePage extends React.Component {
         if (this.props.userId == localStorage.getItem('userId')) {
             return <Button primary basic>Settings</Button>
         } else {
-            return <Button primary basic>Add Friend</Button>
+            let {userId} = this.props.match.params
+            const friendId = parseInt(userId)
+            const currentUserId = parseInt(localStorage.getItem('userId'))
+            // console.log(currentUserId, friendId)
+            return <Button primary basic
+                onClick={() => postNewFriendship(currentUserId, friendId).then(console.log)}
+            >Add Friend</Button>
         }
     }
 

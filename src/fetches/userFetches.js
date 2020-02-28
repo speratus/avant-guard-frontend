@@ -12,6 +12,14 @@ export function fetchUserList() {
 }
 
 export function postNewFriendship(userId, friendId) {
+    console.log(userId, friendId)
+    const data = {
+        friendship: {
+            friender_id: userId,
+            friended_id: friendId
+        }
+    }
+    console.log('sending:', data)
     return fetch(BASE_URL+'/friendships', {
         method: 'POST',
         headers: {
@@ -19,9 +27,6 @@ export function postNewFriendship(userId, friendId) {
             Accept: 'application/json',
             'Access-Token': localStorage.getItem('token')
         },
-        body: JSON.stringify({
-            friender_id: userId,
-            friended_id: friendId
-        })
+        body: JSON.stringify(data)
     }).then(res=>res.json())
 }
