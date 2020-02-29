@@ -18,8 +18,8 @@ class ChallengeSelector extends React.Component {
     
     handleSearchChanged = (e, {value}) => {
         const searchList = this.props.gameType
-        console.log(value)
-        const results = this.props[searchList].filter(e => e.startsWith(value))
+        let regex = RegExp(`^${value}`, 'i')
+        const results = this.props[searchList].filter(e => !!e.match(regex))
         const data = results.map(r=>{
             return {
                 title: r
