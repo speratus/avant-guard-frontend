@@ -6,6 +6,9 @@ import timerReducer from './reducers/timerReducer'
 import resultsReducer from './reducers/resultsReducer'
 import gamePhaseReducer from './reducers/gamePhaseReducer'
 import rankingsReducer from './reducers/rankingsReducer'
+import profileReducer from './reducers/profileReducer'
+import userListReducer from './reducers/userListReducer'
+import friendsListReducer from './reducers/friendsListReducer'
 
 const reducers = combineReducers({
     game: gameReducer,
@@ -14,7 +17,10 @@ const reducers = combineReducers({
     timer: timerReducer,
     gameResults: resultsReducer,
     gamePhase: gamePhaseReducer,
-    rankings: rankingsReducer
+    rankings: rankingsReducer,
+    profileData: profileReducer,
+    userList: userListReducer,
+    friendsList: friendsListReducer
 })
 
 export default createStore(

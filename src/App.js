@@ -7,6 +7,8 @@ import WelcomePage from './containers/WelcomePage'
 import LoginForm from './components/LoginForm'
 import SignupForm from './components/SignupForm'
 import GameContainer from './containers/GameContainer'
+import ProfilePage from './containers/ProfilePage'
+import FriendsListContainer from './containers/FriendsListContainer'
 
 import {connect} from 'react-redux'
 
@@ -35,6 +37,14 @@ function App(props) {
 
       <Route path="/signup">
         <SignupForm />
+      </Route>
+
+      <Route path='/users/:userId' render={routeParams => {
+        return <ProfilePage {...routeParams} />
+      }} />
+
+      <Route path='/friends'>
+        <FriendsListContainer />
       </Route>
     
     </Router>

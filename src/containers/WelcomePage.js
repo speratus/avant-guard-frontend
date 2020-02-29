@@ -2,7 +2,7 @@ import React from 'react'
 
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {Container, Grid, Segment, Header, Button, Dimmer, Loader} from 'semantic-ui-react'
+import {Container, Grid, Segment, Header, Button, Dimmer, Loader, Search} from 'semantic-ui-react'
 
 import logout from '../actions/logout'
 import login from '../actions/login'
@@ -11,6 +11,7 @@ import ChallengeSelector from '../components/ChallengeSelector'
 import {BASE_URL} from '../index'
 import nextGamePhase from '../actions/nextGamePhase'
 import LeaderboardCard from './LeaderboardCard'
+import SearchBox from '../components/SearchBox'
 
 
 const WelcomePage = props => {
@@ -19,38 +20,43 @@ const WelcomePage = props => {
         props.history.push({
             pathname: "/login"
         })
-    } else
+        return null;
+    } else {
         props.login()
-    return <Container style={{marginTop: '3em'}}>
-        <Grid 
-            textAlign='center'
-            style={{height: '100vh'}}
-            verticalAlign='middle'
-            columns={2}
-        >
-            <Grid.Row>
-                <Grid.Column width={9}>
-                    <Segment>
-                        <Header as='h1' style={{fontSize: '5em'}}>New Game</Header>
-                        <ChallengeSelector />
-                        <Button 
-                        primary
-                        style={{fontSize: '3em'}}
-                        onClick={()=>handleStartGame(props)}
-                        >
-                            Start Game!
-                        </Button>
-                    </Segment>
-                </Grid.Column>
-                <Grid.Column width={5}>
-                    <LeaderboardCard />
-                </Grid.Column>
-            </Grid.Row>
-        </Grid>
-        {/* <Dimmer {...{active: props.waitingForGame}}>
-            <Loader />
-        </Dimmer> */}
-    </Container>
+        return <Container style={{marginTop: '3em'}}>
+            <Grid 
+                textAlign='center'
+                style={{height: '100vh'}}
+                verticalAlign='middle'
+                columns={2}
+            >
+                <Grid.Row>
+                    <Grid.Column width={9}>
+                        <Segment>
+                            <Header as='h1' style={{fontSize: '5em'}}>New Game</Header>
+                            <ChallengeSelector />
+                            <Button 
+                            primary
+                            style={{fontSize: '3em'}}
+                            onClick={()=>handleStartGame(props)}
+                            >
+                                Start Game!
+                            </Button>
+                        </Segment>
+                    </Grid.Column>
+                    <Grid.Column width={5}>
+                        <LeaderboardCard />
+                    </Grid.Column>
+                </Grid.Row>
+
+                <Grid.Row>
+                    <Grid.Column width={16} >
+                        <SearchBox />
+                    </Grid.Column>
+                </Grid.Row>
+            </Grid>
+        </Container>
+    }
 }
 
 const handleStartGame = props => {

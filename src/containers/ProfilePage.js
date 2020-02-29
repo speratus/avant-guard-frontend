@@ -1,7 +1,105 @@
 import React from 'react'
+import {withRouter} from 'react-router-dom'
+import {Container, Grid, Button} from 'semantic-ui-react'
+import {connect} from 'react-redux'
 
-const ProfilePage = props => {
+import ScoresContainer from './ScoresContainer'
+
+import {BASE_URL} from '../index'
+import setProfileInfo from '../actions/setProfileInfo'
+import addProfileScores from '../actions/addProfileScores'
+import login from '../actions/login'
+import {postNewFriendship} from '../fetches/userFetches'
+
+class ProfilePage extends React.Component {
+
+    componentDidMount() {
+        if (!localStorage.getItem('token')) {
+            this.props.history.push({
+                pathname: '/'
+            })
+        } else {
+            this.props.login()
+        }
+
+        const {userId} = this.props.match.params
+        fetch(BASE_URL+`/users/${userId}/genre_scores`, {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json',
+                'Access-Token': localStorage.getItem('token')
+            }
+        }).then(res=> res.json()).then(scores => {
+            console.log(scores)
+            this.props.addProfileScores(scores)
+        })
+
+        fetch(BASE_URL+`/users/${userId}`, {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json',
+                'Access-Token': localStorage.getItem('token')
+            }
+        }).then(res=>res.json()).then(userData => {
+            console.log(userData)
+            this.props.setProfileInfo(userData)
+        })
+    }
+
+    determineButtonContent = () => {
+        if (this.props.userId == localStorage.getItem('userId')) {
+            return <Button primary basic>Settings</Button>
+        } else {
+            let {userId} = this.props.match.params
+            const friendId = parseInt(userId)
+            const currentUserId = parseInt(localStorage.getItem('userId'))
+            // console.log(currentUserId, friendId)
+            const friendIds = this.props.friendsList.map(f => f.id)
+            if(friendIds.includes(friendId)) {
+                return null
+            }
+            return <Button primary basic
+                onClick={() => postNewFriendship(currentUserId, friendId).then(console.log)}
+            >Add Friend</Button>
+        }
+    }
+
+    render() {
+        return <Container style={{marginTop: '5em', width: '100%'}}>
+            <Grid centered columns={2}>
+                <Grid.Row>
+                    <Grid.Column width={2}>
+                        <div>
+                            <p><strong>Name:</strong> {this.props.name}</p>
+                            <p><strong>Username:</strong> {this.props.username}</p>
+                            {this.determineButtonContent()}
+                        </div>
+                    </Grid.Column>
+
+                    <Grid.Column width={12}>
+                        <ScoresContainer />
+                    </Grid.Column>
+                </Grid.Row>
+            </Grid>
+        </Container>
+    }
 
 }
 
-export default ProfilePage
+const mapStateToProps = state => {
+    return {
+        ...state.profileData,
+        friendsList: state.friendsList
+    }
+}
+
+export default withRouter(
+    connect(
+        mapStateToProps, 
+        {
+            setProfileInfo,
+            addProfileScores,
+            login
+        }
+    )(ProfilePage)
+)
