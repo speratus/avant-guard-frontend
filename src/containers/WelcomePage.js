@@ -62,8 +62,16 @@ const WelcomePage = props => {
 const handleStartGame = props => {
     let seed = {}
     if (props.gameType === 'artists') {
+        if (props.selectedArtist === '') {
+            alert("You must select an artist before you can play!")
+            return
+        }
         seed.artist = props.selectedArtist
     } else {
+        if (props.selectedGenre === '') {
+            alert("You must select a genre before you can play!")
+            return
+        }
         seed.genre = props.selectedGenre
     }
     fetch(BASE_URL+'/games', {
