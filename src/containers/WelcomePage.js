@@ -12,6 +12,7 @@ import {BASE_URL} from '../index'
 import nextGamePhase from '../actions/nextGamePhase'
 import LeaderboardCard from './LeaderboardCard'
 import SearchBox from '../components/SearchBox'
+import {constructGame} from '../fetches/gameFetches'
 
 
 const WelcomePage = props => {
@@ -74,19 +75,7 @@ const handleStartGame = props => {
         }
         seed.genre = props.selectedGenre
     }
-    fetch(BASE_URL+'/games', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Access-Token': localStorage.getItem('token'),
-            Accept: 'application/json'
-        },
-        body: JSON.stringify({
-            game: {
-                ...seed
-            }
-        })
-    }).then(res=>res.json()).then(game => {
+    constructGame(seed).then(res=>res.json()).then(game => {
         console.log(game)
         props.addGameData(game.questions, game.lyrics, game.id, game.multiplier)
         props.nextGamePhase()
