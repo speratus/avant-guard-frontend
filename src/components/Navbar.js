@@ -38,7 +38,7 @@ const logout = props => {
   }
 
 const Navbar = props => {
-    return <Menu color={'red'} fixed='top' inverted>
+    return <Menu fixed='top' >
         <Menu.Item as={Link} to="/">Home</Menu.Item>
         {
             props.loggedIn ? loggedInView(props) : renderLoggedOutView()
