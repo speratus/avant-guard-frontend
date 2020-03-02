@@ -58,7 +58,7 @@ class ProfilePage extends React.Component {
 
     determineButtonContent = () => {
         if (this.props.userId == localStorage.getItem('userId')) {
-            return <Button primary basic>Settings</Button>
+            return null
         } else {
             let {userId} = this.props.match.params
             const friendId = parseInt(userId)
@@ -79,7 +79,7 @@ class ProfilePage extends React.Component {
             <Grid centered columns={2}>
                 <Grid.Row>
                     <Grid.Column width={2}>
-                        <div>
+                        <div style={{fontSize: '1.75em'}}>
                             <p><strong>Name:</strong> {this.props.name}</p>
                             <p><strong>Username:</strong> {this.props.username}</p>
                             {this.determineButtonContent()}
