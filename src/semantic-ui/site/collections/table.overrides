@@ -1,3 +1,9 @@
 /*******************************
          Site Overrides
 *******************************/
+
+
+
+.ui.celled.table th {
+    background-color: @tableHeaderColor;
+}

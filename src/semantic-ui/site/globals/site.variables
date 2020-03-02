@@ -8,6 +8,8 @@
 
 @whiteOverride: #fef1f0;
 
+@tableHeaderColor: #cecece;
+
 
 body {
      background-image: url('/people-in-concert-1763075.jpg');
