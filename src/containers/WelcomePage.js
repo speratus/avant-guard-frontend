@@ -33,17 +33,20 @@ const WelcomePage = props => {
             >
                 <Grid.Row>
                     <Grid.Column width={9}>
-                        <Segment>
-                            <Header as='h1' style={{fontSize: '5em'}}>New Game</Header>
-                            <Divider />
-                            <ChallengeSelector />
-                            <Button 
-                            primary
-                            style={{fontSize: '3em'}}
-                            onClick={()=>handleStartGame(props)}
-                            >
-                                Start Game!
-                            </Button>
+                        <Segment style={{padding: '3em'}}>
+                            <Container>
+                                <Header as='h1' style={{fontSize: '5em'}}>New Game</Header>
+                                <Divider />
+                                <ChallengeSelector />
+                                <Button 
+                                fluid
+                                primary
+                                style={{fontSize: '3em'}}
+                                onClick={()=>handleStartGame(props)}
+                                >
+                                    Start Game!
+                                </Button>
+                            </Container>
                         </Segment>
                     </Grid.Column>
                     <Grid.Column width={5}>
