@@ -81,7 +81,7 @@ const handleStartGame = props => {
             alert(game.message)
             props.resetGamePhase()
         }
-        props.addGameData(game.questions, game.lyrics, game.id, game.multiplier)
+        props.addGameData(game.questions, game.lyrics, game.id, game.multiplier, game.clip_address)
         props.nextGamePhase()
     })
     props.nextGamePhase()
