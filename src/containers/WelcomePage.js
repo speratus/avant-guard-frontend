@@ -8,10 +8,11 @@ import logout from '../actions/logout'
 import login from '../actions/login'
 import addGameData from '../actions/addGameData'
 import ChallengeSelector from '../components/ChallengeSelector'
-import {BASE_URL} from '../index'
 import nextGamePhase from '../actions/nextGamePhase'
 import LeaderboardCard from './LeaderboardCard'
 import SearchBox from '../components/SearchBox'
+import {constructGame} from '../fetches/gameFetches'
+import resetGamePhase from '../actions/resetGamePhase'
 
 
 const WelcomePage = props => {
@@ -74,20 +75,12 @@ const handleStartGame = props => {
         }
         seed.genre = props.selectedGenre
     }
-    fetch(BASE_URL+'/games', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Access-Token': localStorage.getItem('token'),
-            Accept: 'application/json'
-        },
-        body: JSON.stringify({
-            game: {
-                ...seed
-            }
-        })
-    }).then(res=>res.json()).then(game => {
+    constructGame(seed).then(game => {
         console.log(game)
+        if (game.message) {
+            alert(game.message)
+            props.resetGamePhase()
+        }
         props.addGameData(game.questions, game.lyrics, game.id, game.multiplier)
         props.nextGamePhase()
     })
@@ -107,6 +100,7 @@ export default withRouter(connect(
         logout, 
         login,
         addGameData,
-        nextGamePhase
+        nextGamePhase,
+        resetGamePhase
     }
 )(WelcomePage))
