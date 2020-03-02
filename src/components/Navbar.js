@@ -7,9 +7,6 @@ import setLogout from '../actions/logout'
 
 const renderLoggedOutView = () => {
     return <React.Fragment>
-        {/* <Container>
-            <Menu.Item as={Link} to="/login">Home</Menu.Item>
-        </Container> */}
         <Menu.Menu position="right">
             <Menu.Item as={Link} to="/signup">Sign up</Menu.Item>
         </Menu.Menu>
@@ -41,7 +38,7 @@ const logout = props => {
   }
 
 const Navbar = props => {
-    return <Menu fixed='top' inverted>
+    return <Menu color={'red'} fixed='top' inverted>
         <Menu.Item as={Link} to="/">Home</Menu.Item>
         {
             props.loggedIn ? loggedInView(props) : renderLoggedOutView()

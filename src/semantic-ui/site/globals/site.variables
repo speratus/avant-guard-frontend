@@ -4,6 +4,8 @@
 
 @primaryColor: #e84545;
 @backgroundColor: #e9bdbd;
+@red: #bf0a0a;
+
 
 body {
      background-image: url('/people-in-concert-1763075.jpg');
