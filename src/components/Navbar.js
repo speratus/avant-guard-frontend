@@ -44,7 +44,7 @@ const logout = props => {
   }
 
 const Navbar = props => {
-    return <Menu fixed='top' inverted>
+    return <Menu fixed='top'>
         <Menu.Item as={Link} to="/">
             <Icon name="home" />
             Home
