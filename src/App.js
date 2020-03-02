@@ -46,6 +46,10 @@ function App(props) {
       <Route path='/friends'>
         <FriendsListContainer />
       </Route>
+
+      <Route path='/profile'>
+        <ProfilePage viewingMyProfile />
+      </Route>
     
     </Router>
   );

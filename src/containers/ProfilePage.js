@@ -22,8 +22,18 @@ class ProfilePage extends React.Component {
             this.props.login()
         }
 
-        const {userId} = this.props.match.params
-        fetch(BASE_URL+`/users/${userId}/genre_scores`, {
+        let profileId
+        console.log('props:', this.props.viewingMyProfile)
+        if (this.props.viewingMyProfile) {
+            console.log('Setting profileId to my Id')
+            profileId = parseInt(localStorage.getItem('userId'))
+        } else {
+            const {userId} = this.props.match.params
+            profileId = userId
+        }
+
+        console.log('The profile id is', profileId)
+        fetch(BASE_URL+`/users/${profileId}/genre_scores`, {
             method: 'GET',
             headers: {
                 Accept: 'application/json',
@@ -34,7 +44,7 @@ class ProfilePage extends React.Component {
             this.props.addProfileScores(scores)
         })
 
-        fetch(BASE_URL+`/users/${userId}`, {
+        fetch(BASE_URL+`/users/${profileId}`, {
             method: 'GET',
             headers: {
                 Accept: 'application/json',

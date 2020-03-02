@@ -23,7 +23,7 @@ const loggedInView = props =>{
         <Menu.Menu position="right">
             <Menu.Item onClick={() => {
                 props.history.push({
-                    pathname: `/users/${localStorage.getItem('userId')}`
+                    pathname: `/profile`
                 })
             }}>Profile</Menu.Item>
             <Menu.Item onClick={() => logout(props)}>Logout</Menu.Item>

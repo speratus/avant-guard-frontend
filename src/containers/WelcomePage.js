@@ -63,14 +63,14 @@ const WelcomePage = props => {
 const handleStartGame = props => {
     let seed = {}
     if (props.gameType === 'artists') {
-        if (props.selectedArtist === '') {
-            alert("You must select an artist before you can play!")
+        if (!props.artists.includes(props.selectedArtist)) {
+            alert(`${props.selectedArtist} is not in the database!`)
             return
         }
         seed.artist = props.selectedArtist
     } else {
-        if (props.selectedGenre === '') {
-            alert("You must select a genre before you can play!")
+        if (!props.genres.includes(props.selectedGenre)) {
+            alert(`${props.selectedGenre} is not in the database!`)
             return
         }
         seed.genre = props.selectedGenre
