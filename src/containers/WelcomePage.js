@@ -79,7 +79,9 @@ const handleStartGame = props => {
         console.log(game)
         if (game.message) {
             alert(game.message)
+            console.log('Resetting game phase')
             props.resetGamePhase()
+            return
         }
         props.addGameData(game.questions, game.lyrics, game.id, game.multiplier, game.clip_address)
         props.nextGamePhase()
