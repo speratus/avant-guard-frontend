@@ -23,12 +23,16 @@ class ProfilePage extends React.Component {
         }
 
         let profileId
+        console.log('props:', this.props.viewingMyProfile)
         if (this.props.viewingMyProfile) {
+            console.log('Setting profileId to my Id')
             profileId = parseInt(localStorage.getItem('userId'))
+        } else {
+            const {userId} = this.props.match.params
+            profileId = userId
         }
 
-        const {userId} = this.props.match.params
-        profileId = userId
+        console.log('The profile id is', profileId)
         fetch(BASE_URL+`/users/${profileId}/genre_scores`, {
             method: 'GET',
             headers: {
