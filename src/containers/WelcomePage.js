@@ -49,7 +49,7 @@ const WelcomePage = props => {
                             </Container>
                         </Segment>
                     </Grid.Column>
-                    <Grid.Column width={5}>
+                    <Grid.Column width={7}>
                         <LeaderboardCard />
                     </Grid.Column>
                 </Grid.Row>
