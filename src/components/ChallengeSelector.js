@@ -25,6 +25,7 @@ class ChallengeSelector extends React.Component {
                 title: r
             }
         })
+        this.selectChallenge(value)
         this.setState({results: data, searchTerm: value})
     }
 
@@ -54,17 +55,21 @@ class ChallengeSelector extends React.Component {
         })
     }
 
-    handleResultSelect = (e, {result}) => {
+    selectChallenge = input => {
         switch(this.props.gameType) {
             case 'genres':
-                this.props.selectGenre(result.title)
+                this.props.selectGenre(input)
                 break
             case 'artists':
-                this.props.selectArtist(result.title)
+                this.props.selectArtist(input)
                 break
             default:
-                this.props.selectGenre(result.title)
+                this.props.selectGenre(input)
         }
+    }
+
+    handleResultSelect = (e, {result}) => {
+        this.selectChallenge(result.title)
         this.setState({searchTerm: result.title})
     }
 
