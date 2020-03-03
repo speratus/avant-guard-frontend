@@ -68,7 +68,6 @@ class ProfilePage extends React.Component {
             if(friendIds.includes(friendId)) {
                 return <Button 
                     primary 
-                    basic
                     onClick={() => (
                             deleteFriendship(currentUserId, friendId).then(message => {
                                 console.log(message)
@@ -79,7 +78,7 @@ class ProfilePage extends React.Component {
                     Unfriend
                 </Button>
             }
-            return <Button primary basic
+            return <Button primary 
                 onClick={() => postNewFriendship(currentUserId, friendId).then(friendship => {
                     if (friendship.id) {
                         this.props.history.push({pathname: '/friends'})
