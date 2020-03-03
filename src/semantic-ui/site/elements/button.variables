@@ -6,6 +6,6 @@
 
 @shadowDimensions: 3px 3px 3px;
 
-@boxShadow: @shadowDimensions @shadowColor;
+@boxShadow: @shadowBoxShadow, @shadowDimensions @borderColor;
 
-/* @coloredBoxShadow: @shadowDimensions darken(@coloredBackgroundImage, 25); */
+@coloredBoxShadow: @shadowDimensions @borderColor;
