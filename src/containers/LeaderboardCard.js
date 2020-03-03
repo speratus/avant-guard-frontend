@@ -18,7 +18,7 @@ class LeaderboardCard extends React.Component {
 
     render() {
         return <Segment>
-            <Header as='h1'>Leadeboards:</Header>
+            <Header as='h1'>Leaderboards:</Header>
             <LeaderboardTable rankings={this.props.rankings}/>
         </Segment>
     }
