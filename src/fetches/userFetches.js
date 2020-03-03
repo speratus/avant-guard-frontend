@@ -15,12 +15,11 @@ export function postNewFriendship(userId, friendId) {
     console.log(userId, friendId)
     const data = {
         friendship: {
-            friender_id: userId,
             friended_id: friendId
         }
     }
     console.log('sending:', data)
-    return fetch(BASE_URL+'/friendships', {
+    return fetch(BASE_URL+`/users/${userId}/friendships`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
