@@ -10,6 +10,28 @@
 
 @tableHeaderColor: #cecece;
 
+/*===============
+    FONT
+===============*/
+@fontName          : 'Abel';
+@bodyFontName      : 'Oxanium';
+@fontSmoothing     : antialiased;
+
+@headerFont        : @fontName, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@pageFont          : @bodyFontName, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+
+@googleFontName    : @fontName;
+@importGoogleFonts : true;
+@googleFontSizes   : '400,700,400italic,700italic';
+@googleSubset      : 'latin';
+
+@googleProtocol    : 'https://';
+@googleFontRequest : '@{googleFontName}|@{bodyFontName}:@{googleFontSizes}&subset=@{googleSubset}';
+
+
+@bold              : bold;
+@normal            : normal;
+
 
 body {
      background-image: url('/people-in-concert-1763075.jpg');
