@@ -39,3 +39,13 @@ export function getFriends() {
         }
     }).then(res=>res.json())
 }
+
+export function deleteFriendship(userId, friendId) {
+    return fetch(BASE_URL+`/users/${userId}/friendships/${friendId}`, {
+        method: 'DELETE',
+        headers: {
+            Accept: 'application/json',
+            'Access-Token': localStorage.getItem('token')
+        }
+    }).then(res=>res.json())
+}
