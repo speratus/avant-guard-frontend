@@ -10,6 +10,8 @@
 
 @tableHeaderColor: #cecece;
 
+@brandSize: 1em;
+
 /*===============
     FONT
 ===============*/

@@ -13,3 +13,8 @@
 .ui.top.fixed.menu {
     background-color: @whiteOverride;
 }
+
+.brand {
+    font-family: @brandFont;
+    font-size: @brandSize;
+}
