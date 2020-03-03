@@ -13,6 +13,7 @@
 /*===============
     FONT
 ===============*/
+@brandFont         : 'Audiowide';
 @fontName          : 'Abel';
 @bodyFontName      : 'Oxanium';
 @fontSmoothing     : antialiased;
@@ -26,7 +27,7 @@
 @googleSubset      : 'latin';
 
 @googleProtocol    : 'https://';
-@googleFontRequest : '@{googleFontName}|@{bodyFontName}:@{googleFontSizes}&subset=@{googleSubset}';
+@googleFontRequest : '@{googleFontName}|@{bodyFontName}|@{brandFont}:@{googleFontSizes}&subset=@{googleSubset}';
 
 
 @bold              : bold;
