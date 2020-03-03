@@ -69,7 +69,11 @@ class ProfilePage extends React.Component {
                 return null
             }
             return <Button primary basic
-                onClick={() => postNewFriendship(currentUserId, friendId).then(console.log)}
+                onClick={() => postNewFriendship(currentUserId, friendId).then(friendship => {
+                    if (friendship.id) {
+                        this.props.history.push({pathname: '/friends'})
+                    }
+                })}
             >Add Friend</Button>
         }
     }
