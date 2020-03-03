@@ -9,7 +9,7 @@ import {BASE_URL} from '../index'
 import setProfileInfo from '../actions/setProfileInfo'
 import addProfileScores from '../actions/addProfileScores'
 import login from '../actions/login'
-import {postNewFriendship} from '../fetches/userFetches'
+import {postNewFriendship, deleteFriendship} from '../fetches/userFetches'
 
 class ProfilePage extends React.Component {
 
@@ -66,10 +66,25 @@ class ProfilePage extends React.Component {
             // console.log(currentUserId, friendId)
             const friendIds = this.props.friendsList.map(f => f.id)
             if(friendIds.includes(friendId)) {
-                return null
+                return <Button 
+                    primary 
+                    basic
+                    onClick={() => (
+                            deleteFriendship(currentUserId, friendId).then(message => {
+                                console.log(message)
+                                this.props.history.push({pathname: '/friends'})
+                            })
+                        )}
+                >
+                    Unfriend
+                </Button>
             }
             return <Button primary basic
-                onClick={() => postNewFriendship(currentUserId, friendId).then(console.log)}
+                onClick={() => postNewFriendship(currentUserId, friendId).then(friendship => {
+                    if (friendship.id) {
+                        this.props.history.push({pathname: '/friends'})
+                    }
+                })}
             >Add Friend</Button>
         }
     }
