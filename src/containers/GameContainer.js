@@ -15,7 +15,7 @@ const renderInProgressGame = props => {
     if (props.clip) {
         challenge =  <audio
             controls 
-            autoplay 
+            autoPlay 
             name="media"
             src={props.clip}
         />
