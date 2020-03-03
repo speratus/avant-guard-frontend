@@ -5,7 +5,7 @@ import loadFriendsList from '../actions/loadFriendsList'
 import {getFriends} from '../fetches/userFetches'
 
 import FriendCard from '../components/FriendCard'
-import { Container, Grid } from 'semantic-ui-react'
+import { Container, Grid, Header } from 'semantic-ui-react'
 
 class FriendsListContainer extends React.Component {
 
@@ -18,6 +18,7 @@ class FriendsListContainer extends React.Component {
 
     render() {
         return <Container style={{marginTop: '5em'}}>
+            <Header as='h1' style={{fontSize: '3em'}}>Friends</Header>
             <Grid columns={5}>
                 <Grid.Row>
                     {
