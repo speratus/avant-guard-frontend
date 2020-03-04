@@ -89,7 +89,7 @@ class ProfilePage extends React.Component {
     }
 
     render() {
-        return <Container style={{marginTop: '5em', width: '100%'}}>
+        return <Container style={{marginTop: '8em', width: '100%'}}>
             <Grid centered columns={2}>
                 <Grid.Row>
                     <Grid.Column width={2}>
