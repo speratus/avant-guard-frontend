@@ -1,68 +1,86 @@
+# Avant Garde
+
+Avant Garde is an app to help you test you and your friends' knowledge of artists and genres.
+When you play, the app will pick a random song from the genre or artist you have selected and display a portion of the song's lyrics. You will then be asked to answer three questions about the song.
+
+Points are awarded based on the obscurity of the song. The more obscure a song is, the more points you get for each correctly answered question.
+
+## Installation
+
+### 1. In order to run Avant Garde, you will need to install `yarn` or `npm`.
+
+I recommend using `yarn`, but `npm` works fine as well.
+
+#### Mac users
+If you have [Homebrew](https://brew.sh/) installed, you can simply run
+```
+brew install npm
+```
+Or,
+```
+brew install yarn
+```
+
+#### Linux Users
+If you have are using Homebrew on linux, see the instructions above.
+
+Otherwise, you should be able to install yarn or npm from your distro's package manager.
+
+#### Windows Users
+On Windows, you have several options for installing [yarn](https://yarnpkg.com/getting-started/install) or [npm](https://www.npmjs.com/).
+
+I recommend installing using [Scoop](https://scoop.sh).
+To install yarn or npm from scoop, you can run
+```
+scoop install nodejs
+```
+Or,
+```
+scoop install yarn
+```
+
+### 2. Getting Avant Garde
+If you want to run a local instance of the Avant Garde backend, [go here](#running-the-backend).
+
+Make a directory for Avant Garde and clone the repository into it.
+```
+git clone https://github.com/speratus/avant-guard-frontend
+```
+
+Next install the required depencencies by running 
+```
+yarn
+```
+Or,
+```
+npm install
+```
+
+## Running Avant Garde
+
+Once you've got everything installed,
+you can start up Avant Garde simply by running
+```
+yarn start
+```
+Or,
+```
+npm start
+```
+
+Once you've got an instance running, you're ready to go! Just open up your browser, navigate to [localhost](http://localhost:3000/), and create an account and you're good to go! Select a genre or artist and hit start!
+
+### Running The backend
+By default, Avant Garde will query the backend deployed on Heroku, but if you want to run the backend on your local machine, You can find instructions for doing that [here](https://github.com/speratus/avant-guard-backend).
+
+## Dependencies
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+ * [React](https://reactjs.org/)
+ * [React Router DOM](https://github.com/ReactTraining/react-router#readme)
+ * [Redux](https://redux.js.org/)
+ * [React-Redux](https://react-redux.js.org/)
+ * [Redux-Reducer-Builder](https://github.com/speratus/redux-reducer-builder)
+ * [Semantic-UI-React](https://react.semantic-ui.com/)
 
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
