@@ -79,7 +79,7 @@ const renderCompleteGame = props => {
             <Grid.Column width={12}>
                 <Header as='h1'>Game results</Header>
                 <Header.Subheader>
-                    <strong>Multiplier: </strong>{props.results.multiplier}&nbsp;
+                    <strong>Obscurity Points: </strong>{props.results.multiplier}&nbsp;
                     <strong>Final Score: </strong>{props.results.final_score}
                 </Header.Subheader>
                 <AnswerContainer 
