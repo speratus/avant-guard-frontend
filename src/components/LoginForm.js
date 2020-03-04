@@ -55,7 +55,7 @@ class LoginForm extends React.Component {
     render() {
         return <Grid textAlign='center' style={{height: '100vh'}} verticalAlign='middle'>
             <Grid.Column style={{maxWidth: 600}}>
-                <Header>Please Enter your Username and Password</Header>
+                <Header as='h1'>Please Enter your Username and Password</Header>
                 <Form onSubmit={this.onSubmit}>
                     <Segment>
                         <label>Username</label>

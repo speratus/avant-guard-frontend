@@ -46,7 +46,7 @@ const logout = props => {
 const Navbar = props => {
     return <Menu>
         <Menu.Item className={'brand'}>
-            Avant Guard
+            Avant Garde
         </Menu.Item>
         <Menu.Item as={Link} to="/">
             <Icon name="home" />
