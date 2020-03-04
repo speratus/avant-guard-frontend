@@ -1,6 +1,6 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
-import {Container, Grid, Button} from 'semantic-ui-react'
+import {Container, Grid, Button, Segment} from 'semantic-ui-react'
 import {connect} from 'react-redux'
 
 import ScoresContainer from './ScoresContainer'
@@ -93,11 +93,11 @@ class ProfilePage extends React.Component {
             <Grid centered columns={2}>
                 <Grid.Row>
                     <Grid.Column width={2}>
-                        <div style={{fontSize: '1.75em'}}>
+                        <Segment style={{fontSize: '1.75em'}}>
                             <p><strong>Name:</strong> {this.props.name}</p>
                             <p><strong>Username:</strong> {this.props.username}</p>
                             {this.determineButtonContent()}
-                        </div>
+                        </Segment>
                     </Grid.Column>
 
                     <Grid.Column width={12}>
