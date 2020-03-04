@@ -9,6 +9,7 @@ import SignupForm from './components/SignupForm'
 import GameContainer from './containers/GameContainer'
 import ProfilePage from './containers/ProfilePage'
 import FriendsListContainer from './containers/FriendsListContainer'
+import './App.css'
 
 import {connect} from 'react-redux'
 

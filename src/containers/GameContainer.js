@@ -20,9 +20,9 @@ const renderInProgressGame = props => {
             src={props.clip}
         />
     } else {
-        challenge = <div style={{fontSize: '1.2em'}}>
+        challenge = <Segment style={{fontSize: '1.2em'}}>
             {props.lyrics.split("\n").map(l => <p>{l}</p>)}
-        </div>
+        </Segment>
     }
     return <Grid centered columns={3}>
     <Grid.Column>
@@ -77,13 +77,15 @@ const renderCompleteGame = props => {
     >
         <Grid.Row>
             <Grid.Column width={3}>
-                {
-                    props.results.image ? <Image src={props.results.image} /> : 'NO IMAGE'
-                }
-                <p><strong>Title: </strong>{props.results.song.title}</p>
-                <p><strong>Album: </strong>{props.results.song.album}</p>
-                <p><strong>Artist: </strong>{props.results.song.artist.name}</p>
-                <p><strong>Released: </strong>{props.results.song.release_date}</p>
+                <Segment>
+                    {
+                        props.results.image ? <Image src={props.results.image} /> : 'NO IMAGE'
+                    }
+                    <p><strong>Title: </strong>{props.results.song.title}</p>
+                    <p><strong>Album: </strong>{props.results.song.album}</p>
+                    <p><strong>Artist: </strong>{props.results.song.artist.name}</p>
+                    <p><strong>Released: </strong>{props.results.song.release_date}</p>
+                </Segment>
             </Grid.Column>
             <Grid.Column width={12}>
                 <Header as='h1'>Game results</Header>

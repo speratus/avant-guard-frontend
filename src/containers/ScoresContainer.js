@@ -5,7 +5,7 @@ import ScoresTable from './ScoresTable'
 
 const ScoresContainer = props => {
     return <Container>
-        <Header>Top Genres:</Header>
+        <Header as='h1'>Top Genres:</Header>
         <ScoresTable />
     </Container>
 }

@@ -1,0 +1,11 @@
+/*******************************
+    User Variable Overrides
+*******************************/
+
+@shadowColor: darken(@backgroundColor, 25);
+
+@shadowDimensions: 3px 3px 3px;
+
+@boxShadow: @shadowBoxShadow, @shadowDimensions @borderColor;
+
+@coloredBoxShadow: @shadowDimensions @borderColor;

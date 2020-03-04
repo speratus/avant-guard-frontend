@@ -1,0 +1,11 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+@shadowColor: rgba(172, 60, 52, 0.4);
+
+.ui.segment {
+    border-radius: 15px;
+    box-shadow: 12px 8px 0px 0px @shadowColor;
+    background-color: @whiteOverride;
+}

@@ -2,7 +2,7 @@ import React from 'react'
 
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {Container, Grid, Segment, Header, Button, Dimmer, Loader, Search} from 'semantic-ui-react'
+import {Container, Grid, Segment, Header, Button, Divider} from 'semantic-ui-react'
 
 import logout from '../actions/logout'
 import login from '../actions/login'
@@ -33,19 +33,23 @@ const WelcomePage = props => {
             >
                 <Grid.Row>
                     <Grid.Column width={9}>
-                        <Segment>
-                            <Header as='h1' style={{fontSize: '5em'}}>New Game</Header>
-                            <ChallengeSelector />
-                            <Button 
-                            primary
-                            style={{fontSize: '3em'}}
-                            onClick={()=>handleStartGame(props)}
-                            >
-                                Start Game!
-                            </Button>
+                        <Segment style={{padding: '3em'}}>
+                            <Container>
+                                <Header as='h1' style={{fontSize: '5em'}}>New Game</Header>
+                                <Divider />
+                                <ChallengeSelector />
+                                <Button 
+                                fluid
+                                primary
+                                style={{fontSize: '3em'}}
+                                onClick={()=>handleStartGame(props)}
+                                >
+                                    Start Game!
+                                </Button>
+                            </Container>
                         </Segment>
                     </Grid.Column>
-                    <Grid.Column width={5}>
+                    <Grid.Column width={7}>
                         <LeaderboardCard />
                     </Grid.Column>
                 </Grid.Row>
