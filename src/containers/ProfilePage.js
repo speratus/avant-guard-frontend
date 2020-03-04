@@ -71,7 +71,10 @@ class ProfilePage extends React.Component {
                     onClick={() => (
                             deleteFriendship(currentUserId, friendId).then(message => {
                                 console.log(message)
-                                this.props.history.push({pathname: '/friends'})
+                                if (message.error) {
+                                    alert(message.error)
+                                } else
+                                    this.props.history.push({pathname: '/friends'})
                             })
                         )}
                 >
