@@ -1,0 +1,20 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+@startColor: #f1cd3d;
+
+/*
+.ui.red.inverted.top.fixed.menu {
+    background-image: linear-gradient(@startColor, @red);
+    box-shadow: 0px 2px 3px 1px @red;
+}*/
+
+.ui.top.fixed.menu {
+    background-color: @whiteOverride;
+}
+
+.brand {
+    font-family: @brandFont;
+    font-size: @brandSize;
+}

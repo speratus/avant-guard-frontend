@@ -78,7 +78,7 @@ class ChallengeSelector extends React.Component {
     }
 
     render() {
-        return <Container>
+        return <Container textAlign='left' style={{margin: '2em'}}>
             <Header.Subheader as='h1'>Select Genre or Artist</Header.Subheader>
             <Button.Group>
                 <Button 
@@ -97,6 +97,7 @@ class ChallengeSelector extends React.Component {
                 onSearchChange={this.handleSearchChanged}
                 results={this.state.results}
                 value={this.state.searchTerm}
+                style={{marginTop: '1em'}}
             />
         </Container>
     }

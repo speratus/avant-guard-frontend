@@ -1,5 +1,5 @@
 import React from 'react'
-import { Menu, Container } from 'semantic-ui-react';
+import { Menu, Container, Icon } from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
 import {connect} from 'react-redux'
 
@@ -7,9 +7,6 @@ import setLogout from '../actions/logout'
 
 const renderLoggedOutView = () => {
     return <React.Fragment>
-        {/* <Container>
-            <Menu.Item as={Link} to="/login">Home</Menu.Item>
-        </Container> */}
         <Menu.Menu position="right">
             <Menu.Item as={Link} to="/signup">Sign up</Menu.Item>
         </Menu.Menu>
@@ -19,13 +16,19 @@ const renderLoggedOutView = () => {
 const loggedInView = props =>{
     return <React.Fragment>
         
-        <Menu.Item as={Link} to="/friends">Friends</Menu.Item>
+        <Menu.Item as={Link} to="/friends">
+            <Icon name="address book" />
+            Friends
+        </Menu.Item>
         <Menu.Menu position="right">
             <Menu.Item onClick={() => {
                 props.history.push({
                     pathname: `/profile`
                 })
-            }}>Profile</Menu.Item>
+            }}>
+                <Icon name="user" />
+                Profile
+            </Menu.Item>
             <Menu.Item onClick={() => logout(props)}>Logout</Menu.Item>
         </Menu.Menu>
     </React.Fragment>
@@ -41,8 +44,14 @@ const logout = props => {
   }
 
 const Navbar = props => {
-    return <Menu fixed='top' inverted>
-        <Menu.Item as={Link} to="/">Home</Menu.Item>
+    return <Menu>
+        <Menu.Item className={'brand'}>
+            Avant Guard
+        </Menu.Item>
+        <Menu.Item as={Link} to="/">
+            <Icon name="home" />
+            Home
+        </Menu.Item>
         {
             props.loggedIn ? loggedInView(props) : renderLoggedOutView()
         }

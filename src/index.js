@@ -5,6 +5,7 @@ import * as serviceWorker from './serviceWorker';
 import {Provider} from 'react-redux'
 
 import store from './store'
+import 'semantic-ui-less/semantic.less'
 
 export const BASE_URL = "http://localhost:3000"
 

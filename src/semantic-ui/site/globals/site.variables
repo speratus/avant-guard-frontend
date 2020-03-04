@@ -1,0 +1,43 @@
+/*******************************
+     User Global Variables
+*******************************/
+
+@primaryColor: #e84545;
+@backgroundColor: #e9bdbd;
+@red: #bf0a0a;
+
+@whiteOverride: #fef1f0;
+
+@tableHeaderColor: #cecece;
+
+@brandSize: 2em;
+
+/*===============
+    FONT
+===============*/
+@brandFont         : 'Audiowide';
+@fontName          : 'Abel';
+@bodyFontName      : 'Oxanium';
+@fontSmoothing     : antialiased;
+
+@headerFont        : @fontName, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@pageFont          : @bodyFontName, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+
+@googleFontName    : @fontName;
+@importGoogleFonts : true;
+@googleFontSizes   : '400,700,400italic,700italic';
+@googleSubset      : 'latin';
+
+@googleProtocol    : 'https://';
+@googleFontRequest : '@{googleFontName}|@{bodyFontName}|@{brandFont}:@{googleFontSizes}&subset=@{googleSubset}';
+
+
+@bold              : bold;
+@normal            : normal;
+
+
+body {
+     background-image: url('/people-in-concert-1763075.jpg');
+     background-size: 140% auto;
+     background-attachment: fixed;
+}

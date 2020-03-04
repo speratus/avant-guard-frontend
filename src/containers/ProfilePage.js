@@ -1,6 +1,6 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
-import {Container, Grid, Button} from 'semantic-ui-react'
+import {Container, Grid, Button, Segment} from 'semantic-ui-react'
 import {connect} from 'react-redux'
 
 import ScoresContainer from './ScoresContainer'
@@ -58,7 +58,7 @@ class ProfilePage extends React.Component {
 
     determineButtonContent = () => {
         if (this.props.userId == localStorage.getItem('userId')) {
-            return <Button primary basic>Settings</Button>
+            return null
         } else {
             let {userId} = this.props.match.params
             const friendId = parseInt(userId)
@@ -68,7 +68,6 @@ class ProfilePage extends React.Component {
             if(friendIds.includes(friendId)) {
                 return <Button 
                     primary 
-                    basic
                     onClick={() => (
                             deleteFriendship(currentUserId, friendId).then(message => {
                                 console.log(message)
@@ -82,7 +81,7 @@ class ProfilePage extends React.Component {
                     Unfriend
                 </Button>
             }
-            return <Button primary basic
+            return <Button primary 
                 onClick={() => postNewFriendship(currentUserId, friendId).then(friendship => {
                     if (friendship.id) {
                         this.props.history.push({pathname: '/friends'})
@@ -93,15 +92,15 @@ class ProfilePage extends React.Component {
     }
 
     render() {
-        return <Container style={{marginTop: '5em', width: '100%'}}>
+        return <Container style={{marginTop: '8em', width: '100%'}}>
             <Grid centered columns={2}>
                 <Grid.Row>
                     <Grid.Column width={2}>
-                        <div>
+                        <Segment style={{fontSize: '1.75em'}}>
                             <p><strong>Name:</strong> {this.props.name}</p>
                             <p><strong>Username:</strong> {this.props.username}</p>
                             {this.determineButtonContent()}
-                        </div>
+                        </Segment>
                     </Grid.Column>
 
                     <Grid.Column width={12}>
