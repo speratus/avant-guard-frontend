@@ -4,6 +4,8 @@ import { Link, withRouter } from 'react-router-dom';
 import {connect} from 'react-redux'
 
 import setLogout from '../actions/logout'
+import resetGamePhase from '../actions/resetGamePhase'
+import resetGameState from '../actions/resetGameState'
 
 const renderLoggedOutView = () => {
     return <React.Fragment>
@@ -37,6 +39,8 @@ const loggedInView = props =>{
 const logout = props => {
     localStorage.clear()
     props.setLoggedOut()
+    props.resetGamePhase()
+    props.resetGameState()
     props.history.push({
         pathname: "/",
         state: {loggedIn: false}
@@ -64,4 +68,13 @@ const mapStateToProps = state => {
     }
 }
 
-export default withRouter(connect(mapStateToProps, {setLoggedOut: setLogout})(Navbar))
+export default withRouter(
+    connect(
+        mapStateToProps, 
+        {
+            setLoggedOut: setLogout, 
+            resetGamePhase, 
+            resetGameState
+        }
+    )(Navbar)
+)
