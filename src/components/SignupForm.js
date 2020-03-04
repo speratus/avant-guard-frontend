@@ -51,7 +51,7 @@ class SignupForm extends React.Component {
     render() {
         return <Grid textAlign='center' style={{height: '100vh'}} verticalAlign='middle'>
             <Grid.Column style={{maxWidth: 500}}>
-                <Header>Please Enter your information below</Header>
+                <Header as='h1'>Please Enter your information below</Header>
                 <Segment>
                     <Form onSubmit={this.onSubmit}>
                         <label>Name</label>
