@@ -3616,6 +3616,11 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
 
+easy-redux-reducers@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/easy-redux-reducers/-/easy-redux-reducers-1.0.0.tgz#129deddd5f82865e505877c5e0c1117f4a83918b"
+  integrity sha512-g4YgWcH3LIbBq50iSHBX/zQjXpp6reKSgvgLCxi669ibdM6NLfpI4FCOoe05dn0i9VSdASDHOArQoOujQ7oCLQ==
+
 ecc-jsbn@~0.1.1:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/ecc-jsbn/-/ecc-jsbn-0.1.2.tgz#3a83a904e54353287874c564b7549386849a98c9"
