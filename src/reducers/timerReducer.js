@@ -1,4 +1,4 @@
-import generate from 'redux-reducer-builder'
+import generate from 'easy-redux-reducers'
 
 import decreaseTimer from '../actions/decreaseTimer'
 import resetTimer from '../actions/resetTimer'

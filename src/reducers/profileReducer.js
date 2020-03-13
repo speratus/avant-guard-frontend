@@ -1,4 +1,4 @@
-import factory from 'redux-reducer-builder'
+import factory from 'easy-redux-reducers'
 
 import setProfileInfo from '../actions/setProfileInfo'
 import addProfileScores from '../actions/addProfileScores'

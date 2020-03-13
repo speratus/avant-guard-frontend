@@ -1,4 +1,4 @@
-import factory from 'redux-reducer-builder'
+import factory from 'easy-redux-reducers'
 
 import loadFriendsList from '../actions/loadFriendsList'
 

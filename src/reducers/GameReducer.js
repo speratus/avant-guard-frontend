@@ -1,4 +1,4 @@
-import generator from 'redux-reducer-builder'
+import generator from 'easy-redux-reducers'
 
 import gotoNextQuestion from '../actions/gotoNextQuestion'
 import addGameData from '../actions/addGameData'
