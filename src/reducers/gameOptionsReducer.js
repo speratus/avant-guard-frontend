@@ -1,4 +1,4 @@
-import generator from 'redux-reducer-builder'
+import generator from 'easy-redux-reducers'
 
 import changeGameType from '../actions/changeGameType'
 import selectArtist from '../actions/selectArtist'

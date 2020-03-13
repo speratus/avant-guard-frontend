@@ -1,4 +1,4 @@
-import factory from 'redux-reducer-builder'
+import factory from 'easy-redux-reducers'
 
 import nextGamePhase from '../actions/nextGamePhase'
 import resetGamePhase from '../actions/resetGamePhase'

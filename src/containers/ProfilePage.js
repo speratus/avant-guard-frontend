@@ -93,10 +93,10 @@ class ProfilePage extends React.Component {
 
     render() {
         return <Container style={{marginTop: '8em', width: '100%'}}>
-            <Grid centered columns={2}>
+            <Grid centered columns={2} stackable>
                 <Grid.Row>
-                    <Grid.Column width={2}>
-                        <Segment style={{fontSize: '1.75em'}}>
+                    <Grid.Column width={2} style={{minWidth: 200}}>
+                        <Segment style={{fontSize: '1.75em', minWidth: 172}}>
                             <p><strong>Name:</strong> {this.props.name}</p>
                             <p><strong>Username:</strong> {this.props.username}</p>
                             {this.determineButtonContent()}

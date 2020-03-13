@@ -48,6 +48,8 @@ class LoginForm extends React.Component {
                         loggedIn: true
                     }
                 })
+            } else {
+                alert('Incorrect Username or password.')
             }
         })
     }

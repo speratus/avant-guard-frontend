@@ -1,4 +1,4 @@
-import generator from 'redux-reducer-builder'
+import generator from 'easy-redux-reducers'
 
 import login from '../actions/login'
 import logout from '../actions/logout'
