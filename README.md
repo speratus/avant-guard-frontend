@@ -81,6 +81,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
  * [React Router DOM](https://github.com/ReactTraining/react-router#readme)
  * [Redux](https://redux.js.org/)
  * [React-Redux](https://react-redux.js.org/)
- * [Redux-Reducer-Builder](https://github.com/speratus/redux-reducer-builder)
+ * [Easy-Redux-Reducers](https://github.com/speratus/easy-redux-reducers)
  * [Semantic-UI-React](https://react.semantic-ui.com/)
 
