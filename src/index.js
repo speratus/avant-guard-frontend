@@ -7,7 +7,7 @@ import {Provider} from 'react-redux'
 import store from './store'
 import 'semantic-ui-less/semantic.less'
 
-export const BASE_URL = "http://localhost:3000"
+export const BASE_URL = process.env.REACT_APP_BACKEND_ADDRESS
 
 ReactDOM.render(
     <Provider store={store}>
